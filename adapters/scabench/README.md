@@ -133,8 +133,19 @@ Parity experiments have not been run yet; see `parity_experiment.json`.
 | TBD | TBD | f1 | TBD | 31 | TBD | TBD |
 
 Reproduction:
-- **Original:** follow this repository's README. Check out the sources (`dataset-generator/checkout_sources.py`), run your tool or `baseline-runner/baseline_runner.py`, then run `python -m scoring_algo.cli evaluate` with `MODEL=o4-mini`.
-- **Harbor:** `uv run harbor run -c adapters/scabench/run_scabench.yaml -a <agent> -m "<model>"`.
+
+```bash
+# Original benchmark (from the scabench repo root)
+python dataset-generator/checkout_sources.py --dataset datasets/curated-2025-08-18/curated-2025-08-18.json --output sources/
+# ...run your agent/tool per project, write <DATA_ROOT>/<SCAN_SOURCE>/<project>_results.json, then:
+pip install "git+https://github.com/NethermindEth/auditagent-scoring-algo@a62a15d1ea254158dd5cda4bea8ce8cf5791fb27"
+MODEL=o4-mini DATA_ROOT=... SCAN_SOURCE=... OUTPUT_ROOT=... REPOS_TO_RUN='["<project>"]' \
+  python -m scoring_algo.cli evaluate --no-telemetry
+
+# Harbor adapter
+cd adapters/scabench && uv run scabench --output-dir ../../datasets/scabench && cd ../..
+uv run harbor run -c adapters/scabench/run_scabench.yaml -a <agent> -m "<model>"
+```
 - **Metrics:**
   - `recall` = exact matches / ground-truth findings.
   - `precision` = exact matches / non-informational agent findings.
