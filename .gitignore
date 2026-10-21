@@ -6,7 +6,8 @@ __pycache__/
 *.pyo
 *.pyd
 .pytest_cache/
-.claude
+.claude/*
+!.claude/skills/
 
 # ScaBench generated data and results
 sources/
@@ -63,8 +64,13 @@ baseline_llm_scoring_summary.json
 .env
 .env.local
 venv/
+.venv/
 env/
 
 # API keys and configs (except examples)
 config.json
 !config.example.json
+
+# Generated Harbor tasks (adapters/scabench)
+datasets/scabench/
+jobs/
