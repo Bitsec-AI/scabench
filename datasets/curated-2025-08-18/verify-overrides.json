@@ -1,0 +1,8 @@
+{
+  "sherlock_idle-finance_2024_12": {
+    "commits": ["61a4577bae951e23298dcb696d1b02d6dc62930d"],
+    "reason": "sherlock-audit/2024-12-idle-finance is private (404). Pinned the base of the first audit-fix PR (#95 sherlock-52); later commits merge sherlock-* fixes into IdleCDO*.sol. Inferred - confirm against the audit report PDF.",
+    "verified_by": "",
+    "date": "2026-10-21"
+  }
+}
