@@ -325,11 +325,11 @@
     "platform": "code4rena",
     "codebases": [
       {
-        "codebase_id": "Superposition_4528c9",
-        "repo_url": "https://github.com/code-423n4/2024-08-superposition",
-        "commit": "4528c9d2dbe1550d2660dac903a8246076044905",
-        "tree_url": "https://github.com/code-423n4/2024-08-superposition/tree/4528c9d2dbe1550d2660dac903a8246076044905",
-        "tarball_url": "https://github.com/code-423n4/2024-08-superposition/archive/4528c9d2dbe1550d2660dac903a8246076044905.tar.gz"
+        "codebase_id": "Superposition_00d6eb",
+        "repo_url": "https://github.com/code-423n4/2024-10-superposition",
+        "commit": "00d6eb992f935769816de2c7e397a1da7e54b716",
+        "tree_url": "https://github.com/code-423n4/2024-10-superposition/tree/00d6eb992f935769816de2c7e397a1da7e54b716",
+        "tarball_url": "https://github.com/code-423n4/2024-10-superposition/archive/00d6eb992f935769816de2c7e397a1da7e54b716.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -1549,11 +1549,32 @@
     "platform": "code4rena",
     "codebases": [
       {
-        "codebase_id": "Initia Move_b36d06",
+        "codebase_id": "Initia Move_cc6dcb",
         "repo_url": "https://github.com/code-423n4/2025-01-initia-move",
-        "commit": "",
-        "tree_url": "",
-        "tarball_url": ""
+        "commit": "cc6dcbdc09200391b88a9c5d93b46dd8e7c2d6a6",
+        "tree_url": "https://github.com/code-423n4/2025-01-initia-move/tree/cc6dcbdc09200391b88a9c5d93b46dd8e7c2d6a6",
+        "tarball_url": "https://github.com/code-423n4/2025-01-initia-move/archive/cc6dcbdc09200391b88a9c5d93b46dd8e7c2d6a6.tar.gz"
+      },
+      {
+        "codebase_id": "Initia Move_movevm_7096b7",
+        "repo_url": "https://github.com/initia-labs/movevm",
+        "commit": "7096b76ba9705d4d932808e9c80b72101eafc0a8",
+        "tree_url": "https://github.com/initia-labs/movevm/tree/7096b76ba9705d4d932808e9c80b72101eafc0a8",
+        "tarball_url": "https://github.com/initia-labs/movevm/archive/7096b76ba9705d4d932808e9c80b72101eafc0a8.tar.gz"
+      },
+      {
+        "codebase_id": "Initia Move_minimove_b36d06",
+        "repo_url": "https://github.com/initia-labs/minimove",
+        "commit": "b36d068a7faec31a59d56472e77a9785397f9663",
+        "tree_url": "https://github.com/initia-labs/minimove/tree/b36d068a7faec31a59d56472e77a9785397f9663",
+        "tarball_url": "https://github.com/initia-labs/minimove/archive/b36d068a7faec31a59d56472e77a9785397f9663.tar.gz"
+      },
+      {
+        "codebase_id": "Initia Move_initia_c79d33",
+        "repo_url": "https://github.com/initia-labs/initia",
+        "commit": "c79d3315f16e624f9a39641c52f63b3fc5e2881b",
+        "tree_url": "https://github.com/initia-labs/initia/tree/c79d3315f16e624f9a39641c52f63b3fc5e2881b",
+        "tarball_url": "https://github.com/initia-labs/initia/archive/c79d3315f16e624f9a39641c52f63b3fc5e2881b.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -3270,11 +3291,11 @@
     "platform": "sherlock",
     "codebases": [
       {
-        "codebase_id": "Oku_9e31b4",
+        "codebase_id": "Oku_b84e57",
         "repo_url": "https://github.com/gfx-labs/oku-custom-order-types",
-        "commit": "9e31b40",
-        "tree_url": "https://github.com/gfx-labs/oku-custom-order-types/tree/9e31b40",
-        "tarball_url": "https://github.com/gfx-labs/oku-custom-order-types/archive/9e31b40.tar.gz"
+        "commit": "b84e5725f4d1e0a1ee9048baf44e68d2e53ec971",
+        "tree_url": "https://github.com/gfx-labs/oku-custom-order-types/tree/b84e5725f4d1e0a1ee9048baf44e68d2e53ec971",
+        "tarball_url": "https://github.com/gfx-labs/oku-custom-order-types/archive/b84e5725f4d1e0a1ee9048baf44e68d2e53ec971.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -3400,11 +3421,11 @@
     "platform": "sherlock",
     "codebases": [
       {
-        "codebase_id": "Tally_fda09a",
+        "codebase_id": "Tally_a1d483",
         "repo_url": "https://github.com/withtally/staker",
-        "commit": "fda09a661bbe1b5800fa72f52d6367de46740551",
-        "tree_url": "https://github.com/withtally/staker/tree/fda09a661bbe1b5800fa72f52d6367de46740551",
-        "tarball_url": "https://github.com/withtally/staker/archive/fda09a661bbe1b5800fa72f52d6367de46740551.tar.gz"
+        "commit": "a1d4835286b89d0e6a4f0e7e44343b3bb4a098c5",
+        "tree_url": "https://github.com/withtally/staker/tree/a1d4835286b89d0e6a4f0e7e44343b3bb4a098c5",
+        "tarball_url": "https://github.com/withtally/staker/archive/a1d4835286b89d0e6a4f0e7e44343b3bb4a098c5.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -3482,11 +3503,11 @@
     "platform": "sherlock",
     "codebases": [
       {
-        "codebase_id": "Idle Finance_b6e581",
+        "codebase_id": "Idle Finance_61a457",
         "repo_url": "https://github.com/Idle-Labs/idle-tranches",
-        "commit": "b6e5813",
-        "tree_url": "https://github.com/Idle-Labs/idle-tranches/tree/b6e5813",
-        "tarball_url": "https://github.com/Idle-Labs/idle-tranches/archive/b6e5813.tar.gz"
+        "commit": "61a4577bae951e23298dcb696d1b02d6dc62930d",
+        "tree_url": "https://github.com/Idle-Labs/idle-tranches/tree/61a4577bae951e23298dcb696d1b02d6dc62930d",
+        "tarball_url": "https://github.com/Idle-Labs/idle-tranches/archive/61a4577bae951e23298dcb696d1b02d6dc62930d.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -3728,11 +3749,11 @@
     "platform": "sherlock",
     "codebases": [
       {
-        "codebase_id": "SYMMIO_cfe192",
+        "codebase_id": "Symmio_1d0141",
         "repo_url": "https://github.com/SYMM-IO/token",
-        "commit": "cfe1920",
-        "tree_url": "https://github.com/SYMM-IO/token/tree/cfe1920",
-        "tarball_url": "https://github.com/SYMM-IO/token/archive/cfe1920.tar.gz"
+        "commit": "1d014156b1d9f0ab3259026127b9220eb2da3292",
+        "tree_url": "https://github.com/SYMM-IO/token/tree/1d014156b1d9f0ab3259026127b9220eb2da3292",
+        "tarball_url": "https://github.com/SYMM-IO/token/archive/1d014156b1d9f0ab3259026127b9220eb2da3292.tar.gz"
       }
     ],
     "vulnerabilities": [
