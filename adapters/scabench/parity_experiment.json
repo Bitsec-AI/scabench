@@ -1,0 +1,34 @@
+[
+  {
+    "adapter_name": "scabench",
+    "agent": "<agent>@<version>",
+    "model": "<model>",
+    "date": "YYYY-MM-DD",
+    "adapted_benchmark_size": 31,
+    "parity_benchmark_size": null,
+    "number_of_runs": null,
+    "notes": "Parity experiments not yet run.",
+    "original_parity_repo": null,
+    "adapter_pr": [],
+    "dataset_pr": [],
+    "parity_pr": [],
+    "metrics": [
+      {
+        "benchmark_name": "ScaBench",
+        "metric": "f1",
+        "original": "<mean +/- sample_SEM>",
+        "harbor": "<mean +/- sample_SEM>",
+        "original_runs": [],
+        "harbor_runs": []
+      },
+      {
+        "benchmark_name": "ScaBench",
+        "metric": "recall",
+        "original": "<mean +/- sample_SEM>",
+        "harbor": "<mean +/- sample_SEM>",
+        "original_runs": [],
+        "harbor_runs": []
+      }
+    ]
+  }
+]

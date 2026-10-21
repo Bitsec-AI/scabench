@@ -1,0 +1,30 @@
+[
+  {
+    "adapter_name": "scabench",
+    "adapter_builders": [],
+    "original_benchmark": [
+      {
+        "split": "curated-2025-08-18",
+        "size": 31,
+        "harness": "llm",
+        "supported_agents": null,
+        "adaptable": true,
+        "notes": "31 projects / 555 ground-truth vulnerabilities from Code4rena, Cantina and Sherlock audits (2024-08 to 2025-08). The original harness is a per-file LLM baseline runner; scoring uses Nethermind's AuditAgent scoring algorithm."
+      }
+    ],
+    "harbor_adapter": [
+      {
+        "split": "curated-2025-08-18",
+        "adapted_benchmark_size": 31,
+        "parity_benchmark_size": null,
+        "parity_sampling_rate": null,
+        "registry_benchmark_size": 31,
+        "added_agents": [],
+        "parity_matching_agents": [],
+        "parity_unmatching_agents": null,
+        "parity_costs": null,
+        "notes": "One task per project. Parity experiments pending."
+      }
+    ]
+  }
+]
