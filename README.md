@@ -153,6 +153,14 @@ python -m scoring_algo.generate_report \
   --out REPORT.md
 ```
 
+### ⚓ **Harbor Adapter** (`adapters/scabench/`)
+Run ScaBench with any agent supported by the [Harbor](https://github.com/harbor-framework/harbor) eval framework. Each project becomes a Harbor task: the agent audits the source at the pinned commit and writes `/workspace/findings.json`, and the verifier scores it with the AuditAgent algorithm.
+```bash
+cd adapters/scabench && uv run scabench          # writes tasks to datasets/scabench/
+cd ../.. && harbor run -p datasets/scabench -a claude-code -m anthropic/claude-sonnet-4-5
+```
+The verifier's LLM judge needs `OPENAI_API_KEY` set in your shell. See [adapters/scabench/README.md](adapters/scabench/README.md) for details.
+
 ### 📄 **Report Generation**
 - Via AuditAgent algo (preferred):
   - Markdown summary: `python -m scoring_algo.generate_report --benchmarks <OUTPUT_ROOT> --scan-root <DATA_ROOT>/<SCAN_SOURCE> --out REPORT.md`
