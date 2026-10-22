@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Text Comparison</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f3f2ee;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --rule: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --kept: #c3c2b7;
+  --s1: #2a78d6;   /* credits */
+  --s2: #eb6834;   /* sponsor / judge discussion */
+  --s3: #1baf7a;   /* report spill-over */
+  --s7: #6250d6;   /* added by Nethermind */
+  --seq: #2a78d6;
+  --good: #006300;
+  --warn-bg: #fdf3dc;
+  --tip: #0b0b0b;
+  --tip-ink: #f0efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781; --grid: #2c2c2a; --rule: #383835;
+    --border: rgba(255,255,255,0.10); --kept: #52514e;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s7: #9085e9; --seq: #3987e5;
+    --good: #0ca30c; --warn-bg: #2e2717; --tip: #f0efec; --tip-ink: #0b0b0b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781; --grid: #2c2c2a; --rule: #383835;
+  --border: rgba(255,255,255,0.10); --kept: #52514e;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s7: #9085e9; --seq: #3987e5;
+  --good: #0ca30c; --warn-bg: #2e2717; --tip: #f0efec; --tip-ink: #0b0b0b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 19px; margin: 0 0 4px; }
+h3 { font-size: 15px; margin: 0 0 6px; }
+p { margin: 0 0 10px; }
+.meta { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+.lede { color: var(--ink-2); max-width: 760px; }
+code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+section.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 20px; margin-top: 18px;
+}
+.sub { color: var(--ink-2); font-size: 14px; margin-bottom: 14px; max-width: 780px; }
+.callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--s1);
+  border-radius: 10px; padding: 16px 20px; margin-top: 18px; }
+.callout ul { margin: 6px 0 0; padding-left: 20px; }
+.callout li { margin: 4px 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 18px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.tile .label { color: var(--ink-2); font-size: 13px; }
+.tile .value { font-size: 26px; font-weight: 600; margin-top: 2px; }
+.tile .note { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+/* controls */
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.seg-ctl { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg-ctl button { border: 0; background: transparent; color: var(--ink-2); padding: 5px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+.seg-ctl button[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); font-weight: 600; }
+select, .btn { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 5px 8px; max-width: 100%; }
+.btn { cursor: pointer; }
+label.chk { font-size: 13px; color: var(--ink-2); display: inline-flex; gap: 6px; align-items: center; }
+
+/* legend */
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--ink-2); margin: 4px 0 12px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* stacked bars */
+.bars { display: grid; grid-template-columns: minmax(120px, 230px) 1fr 64px; gap: 8px 12px; align-items: center; }
+.bars .name { font-size: 13px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars .name small { color: var(--muted); }
+.track { display: flex; gap: 2px; height: 18px; }
+.track .seg { height: 100%; min-width: 0; cursor: default; }
+.track .seg:last-child { border-radius: 0 4px 4px 0; }
+.track .seg:hover, .track .seg:focus { filter: brightness(1.12); outline: none; }
+.bars .pct { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; text-align: right; }
+.axis { grid-column: 2; display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; border-top: 1px solid var(--rule); padding-top: 3px; }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--grid); text-align: left; vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.scroll-x { overflow-x: auto; }
+
+/* heatmap */
+.heat td.cell { text-align: center; font-variant-numeric: tabular-nums; min-width: 64px; }
+.heat td.cell.zero { color: var(--muted); }
+.heat tr.group th { background: var(--surface-2); color: var(--ink); }
+.badge { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 99px; border: 1px solid var(--rule); color: var(--ink-2); margin-left: 6px; white-space: nowrap; }
+.heat th.det { font-weight: 600; font-size: 12px; text-align: center; }
+.heat th.det small { display: block; font-weight: 400; color: var(--muted); }
+
+/* examples */
+.examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.ex { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--surface); }
+.ex .k { display: flex; gap: 8px; align-items: center; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.ex .q { font-size: 13px; color: var(--ink-2); max-height: 150px; overflow: auto; }
+.ex .src { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* diff */
+.diff { font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.diff .t { font-weight: 600; font-size: 16px; margin-bottom: 8px; }
+.rm { border-radius: 3px; padding: 1px 2px; text-decoration: line-through; text-decoration-color: color-mix(in oklab, var(--ink) 35%, transparent); }
+.rm::before { content: attr(data-label); text-decoration: none; display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .03em;
+  text-transform: uppercase; color: var(--ink); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; margin-right: 4px; }
+.rm.credits { background: color-mix(in oklab, var(--s1) 22%, transparent); }
+.rm.discussion { background: color-mix(in oklab, var(--s2) 22%, transparent); }
+.rm.spillover { background: color-mix(in oklab, var(--s3) 24%, transparent); }
+.rm.other { background: color-mix(in oklab, var(--muted) 30%, transparent); }
+.ins { background: color-mix(in oklab, var(--s7) 20%, transparent); border-radius: 3px; padding: 1px 2px; }
+.fmt { text-decoration: underline dotted var(--s7); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.collapsed-note { display: inline-block; font-size: 12px; color: var(--ink-2); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pair h3 { font-size: 13px; color: var(--ink-2); }
+.pair pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--surface-2); border-radius: 8px; padding: 10px; max-height: 70vh; overflow: auto; }
+.fstats { font-size: 13px; color: var(--ink-2); margin: 10px 0; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.fstats b { color: var(--ink); font-weight: 600; }
+
+.tip { position: fixed; pointer-events: none; background: var(--tip); color: var(--tip-ink); font-size: 12px; padding: 6px 9px;
+  border-radius: 6px; z-index: 10; opacity: 0; transition: opacity .08s; max-width: 280px; }
+.tip b { font-size: 14px; display: block; }
+.tip .line { display: inline-block; width: 12px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 5px; }
+ol.reco { padding-left: 20px; margin: 6px 0 0; }
+ol.reco li { margin: 8px 0; }
+.foot { color: var(--muted); font-size: 12px; margin-top: 28px; }
+.foot pre { white-space: pre-wrap; background: var(--surface-2); padding: 10px; border-radius: 8px; color: var(--ink-2); }
+section.card, .callout { min-width: 0; overflow-wrap: anywhere; }
+.heat th, .heat td { overflow-wrap: normal; }
+@media (max-width: 720px) {
+  h1 { font-size: 23px; }
+  section.card { padding: 16px 14px; }
+  .bars { grid-template-columns: 96px minmax(0, 1fr) 52px; }
+  .pair { grid-template-columns: 1fr; }
+  #explorer select { width: 100%; }
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>ScaBench vs Nethermind finding text</h1>
+  <div class="meta" id="meta"></div>
+  <p class="lede">Nethermind's scorer repo ships its own copy of 11 ScaBench projects as ground truth. Same findings, same IDs,
+    but with the text cleaned up. This report shows exactly what was removed or reformatted, checks whether any audit content
+    was lost, and measures how much of the same noise remains in the 20 projects Nethermind did not clean.</p>
+
+  <div class="callout" id="bottomline"></div>
+  <div class="tiles" id="tiles"></div>
+
+  <section class="card" id="sec-removed">
+    <div class="row" style="justify-content: space-between;">
+      <h2>Where the removed characters come from</h2>
+      <div class="seg-ctl" role="group" aria-label="View">
+        <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+        <button type="button" data-view="table" aria-pressed="false">Table</button>
+      </div>
+    </div>
+    <p class="sub">Share of each project's ScaBench description text, by what Nethermind did with it. Diffs ignore whitespace and
+      backticks, so formatting-only edits count as kept. Every removed run is labelled by the marker it contains;
+      a removal with no marker would show up as “unexplained”. <b>Discussion</b> covers sponsor, judge and warden comments
+      after judging (some quote code) plus mitigation status. <b>Spill-over</b> is text from other parts of the report glued onto the last
+      finding of a section: the QA report, mitigation-review findings, and the C4 disclaimer.</p>
+    <div class="legend" id="bar-legend"></div>
+    <div id="bar-chart"></div>
+    <div id="bar-table" hidden></div>
+  </section>
+
+  <section class="card">
+    <h2>Titles and severities</h2>
+    <p class="sub">Titles are what the judge reads first. Nethermind's edits are mostly un-gluing inline code that the HTML scrape
+      fused to neighbouring words.</p>
+    <div id="titles"></div>
+  </section>
+
+  <section class="card">
+    <h2>What each change looks like</h2>
+    <p class="sub">One real excerpt per change type, taken from the diff below.</p>
+    <div class="examples" id="examples"></div>
+  </section>
+
+  <section class="card">
+    <h2>The same noise across all 31 projects</h2>
+    <p class="sub" id="scan-sub"></p>
+    <div class="scroll-x"><table class="heat" id="heat"></table></div>
+  </section>
+
+  <section class="card" id="explorer">
+    <h2>Finding explorer</h2>
+    <p class="sub">Pick any of the overlapping findings to see the full diff. In the diff view, whitespace is collapsed;
+      switch to side-by-side for the raw text of both versions.</p>
+    <div class="row" style="margin-bottom: 10px;">
+      <select id="ex-project" aria-label="Project"></select>
+      <select id="ex-finding" aria-label="Finding" style="flex: 1 1 280px;"></select>
+      <button class="btn" type="button" id="ex-prev" aria-label="Previous finding">←</button>
+      <button class="btn" type="button" id="ex-next" aria-label="Next finding">→</button>
+    </div>
+    <div class="row" style="margin-bottom: 6px; justify-content: space-between;">
+      <label class="chk"><input type="checkbox" id="ex-only"> Only findings with removed text</label>
+      <div class="seg-ctl" role="group" aria-label="Diff view">
+        <button type="button" data-dview="diff" aria-pressed="true">Diff</button>
+        <button type="button" data-dview="side" aria-pressed="false">Side by side</button>
+      </div>
+    </div>
+    <div class="legend" id="diff-legend"></div>
+    <div class="fstats" id="ex-stats"></div>
+    <div id="ex-body"></div>
+  </section>
+
+  <section class="card">
+    <h2>Recommendation</h2>
+    <div id="reco"></div>
+  </section>
+
+  <div class="foot" id="foot"></div>
+</main>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const S = DATA.summary;
+const KINDS = [
+  { key: "credits", label: "Contributor credits", short: "credits", color: "var(--s1)" },
+  { key: "discussion", label: "Sponsor / judge discussion", short: "discussion", color: "var(--s2)" },
+  { key: "spillover", label: "Report spill-over", short: "spill-over", color: "var(--s3)" },
+  { key: "other", label: "Unexplained removal", short: "unexplained", color: "var(--muted)" },
+];
+const KIND = Object.fromEntries(KINDS.map(k => [k.key, k]));
+const fmt = n => n.toLocaleString("en-US");
+const PLATFORM = { code4rena: "Code4rena", cantina: "Cantina", sherlock: "Sherlock" };
+const pct = (a, b, d = 0) => b ? (100 * a / b).toFixed(d) + "%" : "–";
+const short = pid => pid.replace(/^(code4rena|sherlock|cantina)_/, "").replace(/_20\d\d_\d\d$/, "")
+  .replace(/^\d{8}---final---/, "").replace(/-audit-report$/, "");
+function el(tag, attrs = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v; else if (k === "style") e.style.cssText = v;
+    else if (k === "text") e.textContent = v; else e.setAttribute(k, v);
+  }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+}
+const removedTotal = Object.values(S.removed).reduce((a, b) => a + b, 0);
+
+// ---- header, bottom line, tiles
+document.getElementById("meta").textContent =
+  `Generated __GENERATED__ · dataset ${S.dataset} · Nethermind auditagent-scoring-algo @ ${S.scorer_ref.slice(0, 7)}`;
+
+const scan = DATA.scan;
+const sherlock = scan.filter(p => p.platform === "sherlock");
+const sherlockN = sherlock.reduce((a, p) => a + p.findings, 0);
+const sherlockDamaged = sherlock.reduce((a, p) => a + p.counts.damaged_title, 0);
+const c4Uncleaned = scan.filter(p => p.platform === "code4rena" && !p.in_nethermind);
+const c4UncleanedN = c4Uncleaned.reduce((a, p) => a + p.findings, 0);
+const c4UncleanedCredits = c4Uncleaned.reduce((a, p) => a + p.counts.credits, 0);
+{
+  const b = document.getElementById("bottomline");
+  b.append(el("h2", { text: "Bottom line" }));
+  const ul = el("ul");
+  const li = (...parts) => { const l = el("li"); parts.forEach(p => l.append(typeof p === "string" ? document.createTextNode(p) : p)); ul.append(l); };
+  li(el("b", { text: "Nethermind's text is ScaBench's text minus noise. " }),
+     `Across ${S.overlap_findings} findings in ${S.overlap_projects} projects, ${pct(removedTotal, S.chars_scabench)} of description characters were removed, ` +
+     `and every removed run is credits, sponsor/judge discussion, or report spill-over (${fmt(S.removed.other)} unexplained characters). ` +
+     `Nothing was added except “diff” labels on ${S.findings_with_insertions} code blocks.`);
+  li(el("b", { text: "Titles were repaired, not rewritten. " }),
+     `${S.title_changes.spacing || 0} titles had glued inline code split apart, ${S.title_changes.backticks || 0} only gained backticks, ` +
+     `and ${S.title_changes.editorial || 0} got small editorial fixes. Severities match except “informational” → “info” (${S.severity_relabels.reduce((a, r) => a + r.count, 0)} findings), which the scorer treats the same.`);
+  li(el("b", { text: "The other 20 projects are not clean. " }),
+     `The ${c4Uncleaned.length} uncleaned Code4rena projects carry the same credits/discussion noise (${c4UncleanedCredits} of ${c4UncleanedN} findings have credits). ` +
+     `The ${sherlock.length} Sherlock projects are worse: their text comes from PDF extraction, and ${sherlockDamaged} of ${sherlockN} titles are cut off or fused.`);
+  b.append(ul);
+
+  const tiles = document.getElementById("tiles");
+  const tile = (label, value, note) => tiles.append(el("div", { class: "tile" },
+    el("div", { class: "label", text: label }), el("div", { class: "value", text: value }), note ? el("div", { class: "note", text: note }) : null));
+  tile("Findings compared", fmt(S.overlap_findings), `${S.overlap_projects} projects · IDs match: ${S.ids_match_all ? "all" : "no"}`);
+  tile("Description text removed", pct(removedTotal, S.chars_scabench), `${fmt(removedTotal)} of ${fmt(S.chars_scabench)} chars`);
+  tile("Unexplained removals", fmt(S.removed.other), "characters removed without a noise marker");
+  tile("Titles changed", `${S.overlap_findings - (S.title_changes.same || 0)} / ${S.overlap_findings}`, "spacing, backticks, editorial");
+  tile("Sherlock titles damaged", `${sherlockDamaged} / ${sherlockN}`, "not covered by Nethermind");
+}
+
+// ---- tooltip
+const tip = document.getElementById("tip");
+function showTip(target, html) {
+  tip.replaceChildren(...html);
+  const r = target.getBoundingClientRect();
+  tip.style.opacity = 1;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+  let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function hideTip() { tip.style.opacity = 0; }
+
+// ---- stacked bars
+{
+  const legend = document.getElementById("bar-legend");
+  const series = [{ key: "kept", label: "Kept (incl. reformatted)", color: "var(--kept)" }, ...KINDS.slice(0, 3)];
+  for (const s of series) legend.append(el("span", {}, el("i", { class: "sw", style: `background:${s.color}` }), s.label));
+
+  const rows = DATA.projects.map(p => {
+    const removed = Object.values(p.removed).reduce((a, b) => a + b, 0);
+    return { ...p, removedAll: removed, kept: p.chars_scabench - removed };
+  }).sort((a, b) => b.removedAll / b.chars_scabench - a.removedAll / a.chars_scabench);
+
+  const chart = document.getElementById("bar-chart");
+  const grid = el("div", { class: "bars" });
+  for (const p of rows) {
+    grid.append(el("div", { class: "name", title: p.project_id }, short(p.project_id), " ", el("small", { text: `· ${p.findings}` })));
+    const track = el("div", { class: "track" });
+    for (const s of series) {
+      const v = s.key === "kept" ? p.kept : p.removed[s.key];
+      if (!v) continue;
+      const seg = el("div", { class: "seg", tabindex: "0", style: `flex:${v} 1 0; background:${s.color}` });
+      const tipBody = () => [el("b", { text: `${fmt(v)} chars · ${pct(v, p.chars_scabench, 1)}` }),
+        el("span", {}, el("i", { class: "line", style: `background:${s.color}` }), s.label),
+        el("div", { style: "opacity:.75", text: short(p.project_id) })];
+      seg.addEventListener("pointerenter", () => showTip(seg, tipBody()));
+      seg.addEventListener("focus", () => showTip(seg, tipBody()));
+      seg.addEventListener("pointerleave", hideTip); seg.addEventListener("blur", hideTip);
+      track.append(seg);
+    }
+    grid.append(track, el("div", { class: "pct", text: pct(p.removedAll, p.chars_scabench) + " cut" }));
+  }
+  grid.append(el("div"), el("div", { class: "axis" }, el("span", { text: "0%" }), el("span", { text: "50%" }), el("span", { text: "100% of ScaBench chars" })), el("div"));
+  chart.append(grid);
+
+  const t = el("table");
+  t.append(el("thead", {}, el("tr", {}, el("th", { text: "Project" }), el("th", { class: "num", text: "Findings" }),
+    el("th", { class: "num", text: "ScaBench chars" }), el("th", { class: "num", text: "Nethermind chars" }),
+    ...KINDS.map(k => el("th", { class: "num", text: k.label })), el("th", { class: "num", text: "Removed" }))));
+  const tb = el("tbody");
+  for (const p of rows) tb.append(el("tr", {}, el("td", { text: p.project_id }), el("td", { class: "num", text: p.findings }),
+    el("td", { class: "num", text: fmt(p.chars_scabench) }), el("td", { class: "num", text: fmt(p.chars_nethermind) }),
+    ...KINDS.map(k => el("td", { class: "num", text: fmt(p.removed[k.key]) })), el("td", { class: "num", text: pct(p.removedAll, p.chars_scabench, 1) })));
+  t.append(tb);
+  document.getElementById("bar-table").append(el("div", { class: "scroll-x" }, t));
+
+  document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-view]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    document.getElementById("bar-chart").hidden = b.dataset.view !== "chart";
+    document.getElementById("bar-table").hidden = b.dataset.view !== "table";
+  }));
+}
+
+// ---- titles
+{
+  const box = document.getElementById("titles");
+  const tc = S.title_changes;
+  const kinds = [
+    ["same", "Unchanged", "identical text"],
+    ["spacing", "Glued words split", "the scrape dropped the spaces around inline code"],
+    ["backticks", "Backticks added", "markup only, same characters"],
+    ["editorial", "Editorial fix", "wording changed slightly"],
+  ];
+  const t = el("table");
+  t.append(el("thead", {}, el("tr", {}, el("th", { text: "Title change" }), el("th", { class: "num", text: "Findings" }), el("th", { text: "Example (ScaBench → Nethermind)" }))));
+  const tb = el("tbody");
+  for (const [k, label, help] of kinds) {
+    const ex = DATA.findings.find(f => f.title_change === k && (k !== "spacing" || f.title.length < 70));
+    const cell = el("td");
+    if (ex && k !== "same") cell.append(el("span", { class: "mono", text: ex.title }), " → ", el("span", { class: "mono", text: ex.title_nethermind }));
+    else cell.append(el("span", { style: "color:var(--muted)", text: help }));
+    tb.append(el("tr", {}, el("td", {}, el("b", { text: label }), el("div", { style: "color:var(--muted);font-size:12px", text: help })),
+      el("td", { class: "num", text: tc[k] || 0 }), cell));
+  }
+  const ed = DATA.findings.filter(f => f.title_change === "editorial");
+  t.append(tb);
+  box.append(el("div", { class: "scroll-x" }, t));
+  if (ed.length) {
+    box.append(el("h3", { style: "margin-top:14px", text: "All editorial title fixes" }));
+    const ul = el("ul", { style: "margin:0;padding-left:20px;font-size:13px" });
+    ed.forEach(f => ul.append(el("li", {}, el("span", { class: "mono", text: f.title }), " → ", el("span", { class: "mono", text: f.title_nethermind }))));
+    box.append(ul);
+  }
+  const sev = S.severity_relabels.map(r => `“${r.scabench}” → “${r.nethermind}” on ${r.count} findings`).join("; ");
+  box.append(el("p", { style: "margin-top:12px;font-size:14px" }, el("b", { text: "Severities: " }),
+    `${sev || "identical"}. Every other severity is identical. The scorer matches severities by substring (“info” in “informational”), so this is a label change only.`));
+}
+
+// ---- examples
+{
+  const box = document.getElementById("examples");
+  const pick = (kind, min, max) => {
+    let best = null;
+    for (const f of DATA.findings) for (const [k, t] of f.segs)
+      if (k === kind && t.length >= min && t.length <= max && (!best || t.length > best.t.length)) best = { f, t };
+    return best;
+  };
+  const cards = [
+    ["credits", "Contributor credits removed", pick("credits", 80, 420)],
+    ["discussion", "Sponsor / judge discussion removed", pick("discussion", 150, 520)],
+    ["spillover", "Report spill-over removed", pick("spillover", 200, 100000)],
+    ["fmt", "Glued words split (formatting only)", pick("fmt", 12, 60)],
+  ];
+  for (const [kind, title, ex] of cards) {
+    if (!ex) continue;
+    const color = kind === "fmt" ? "var(--s7)" : KIND[kind].color;
+    let text = ex.t.length > 520 ? ex.t.slice(0, 260) + " … " + ex.t.slice(-200) : ex.t;
+    const q = el("div", { class: "q" });
+    if (kind === "fmt") {
+      const before = ex.t.replace(/\s+/g, "");
+      q.append(el("span", { class: "mono", text: before }), " → ", el("span", { class: "mono fmt", text: ex.t }));
+    } else q.append(el("span", { class: `rm ${kind}`, "data-label": KIND[kind].short, text }));
+    const extra = kind === "spillover" ? ` · ${fmt(ex.t.length)} chars in one finding` : "";
+    box.append(el("div", { class: "ex" }, el("div", { class: "k" }, el("i", { class: "sw", style: `background:${color}` }), title), q,
+      el("div", { class: "src", text: `${ex.f.finding_id} · ${short(ex.f.project_id)}${extra}` })));
+  }
+}
+
+// ---- heatmap
+{
+  const v = S.detector_validation;
+  const pr = k => `precision ${pct(v[k].tp, v[k].tp + v[k].fp)}, recall ${pct(v[k].tp, v[k].tp + v[k].fn)}`;
+  document.getElementById("scan-sub").textContent =
+    `Share of findings per project where a heuristic detector fires on the raw ScaBench text. Checked against the Nethermind diff on the ` +
+    `${S.overlap_findings} overlapping findings: credits ${pr("credits")}; discussion ${pr("discussion")}; spill-over ${pr("spillover")}; ` +
+    `glued inline code (titles) ${pr("glued_code_title")}, so treat that column as a lower bound. The PDF detectors have no reference to check against.`;
+  const dets = DATA.detectors;
+  const t = document.getElementById("heat");
+  t.append(el("thead", {}, el("tr", {}, el("th", { text: "Project" }), el("th", { class: "num", text: "Findings" }),
+    ...dets.map(d => el("th", { class: "det", title: d.help }, d.label)))));
+  const tb = el("tbody");
+  for (const plat of ["code4rena", "cantina", "sherlock"]) {
+    const rows = scan.filter(p => p.platform === plat).sort((a, b) => (b.in_nethermind - a.in_nethermind) || a.project_id.localeCompare(b.project_id));
+    if (!rows.length) continue;
+    const n = rows.reduce((a, p) => a + p.findings, 0);
+    tb.append(el("tr", { class: "group" }, el("th", { colspan: String(dets.length + 2), text: `${PLATFORM[plat]} · ${rows.length} projects · ${n} findings` })));
+    for (const p of rows) {
+      const tr = el("tr", {}, el("td", { title: p.project_id }, short(p.project_id), p.in_nethermind ? el("span", { class: "badge", text: "Nethermind cleaned" }) : null),
+        el("td", { class: "num", text: p.findings }));
+      for (const d of dets) {
+        const c = p.counts[d.key], share = c / p.findings;
+        const td = el("td", { class: "cell" + (c ? "" : " zero"), text: c ? `${c}` : "·",
+          title: `${d.label}: ${c} of ${p.findings} findings (${pct(c, p.findings)})` });
+        if (c) td.style.background = `color-mix(in oklab, var(--seq) ${Math.round(8 + 52 * share)}%, var(--surface))`;
+        tr.append(td);
+      }
+      tb.append(tr);
+    }
+  }
+  t.append(tb);
+  const key = el("tfoot", {}, el("tr", {}, el("td", { colspan: String(dets.length + 2), style: "color:var(--muted);font-size:12px;border:0" },
+    "Cells show the number of findings flagged; shading deepens with the share of the project's findings. Hover a column header for what the detector looks for.")));
+  t.append(key);
+}
+
+// ---- explorer
+{
+  const projSel = document.getElementById("ex-project"), findSel = document.getElementById("ex-finding");
+  const only = document.getElementById("ex-only"), body = document.getElementById("ex-body"), stats = document.getElementById("ex-stats");
+  let view = "diff";
+  const projects = [...new Set(DATA.findings.map(f => f.project_id))];
+  projects.forEach(p => projSel.append(el("option", { value: p, text: short(p) })));
+  const legend = document.getElementById("diff-legend");
+  KINDS.slice(0, 3).forEach(k => legend.append(el("span", {}, el("i", { class: "sw", style: `background:color-mix(in oklab, ${k.color} 40%, transparent)` }), `Removed: ${k.label.toLowerCase()}`)));
+  legend.append(el("span", {}, el("i", { class: "sw", style: "background:color-mix(in oklab, var(--s7) 40%, transparent)" }), "Added by Nethermind"));
+  legend.append(el("span", {}, el("span", { class: "fmt", text: "dotted" }), "Re-spaced (same characters)"));
+
+  const removedSum = f => Object.values(f.removed).reduce((a, b) => a + b, 0);
+  function list() {
+    return DATA.findings.filter(f => f.project_id === projSel.value && (!only.checked || removedSum(f) > 0));
+  }
+  function fillFindings(keep) {
+    const items = list();
+    findSel.replaceChildren(...items.map(f => el("option", { value: f.finding_id,
+      text: `${f.finding_id.replace(/^[0-9a-f-]{36}_/, "")} · ${f.severity} · ${f.title.slice(0, 80)}${removedSum(f) ? ` (−${fmt(removedSum(f))})` : ""}` })));
+    if (keep && items.some(f => f.finding_id === keep)) findSel.value = keep;
+    render();
+  }
+  function renderSegs(segs, root) {
+    for (const [k, t] of segs) {
+      if (k === "eq") root.append(document.createTextNode(t + " "));
+      else if (k === "ins") root.append(el("span", { class: "ins", text: t }), " ");
+      else if (k === "fmt") root.append(el("span", { class: "fmt", text: t }), " ");
+      else root.append(el("span", { class: `rm ${k}`, "data-label": KIND[k].short, text: t }), " ");
+    }
+  }
+  function render() {
+    const f = DATA.findings.find(x => x.project_id === projSel.value && x.finding_id === findSel.value);
+    body.replaceChildren(); stats.replaceChildren();
+    if (!f) { body.append(el("p", { class: "sub", text: "No findings match." })); return; }
+    const rs = removedSum(f);
+    const stat = (label, value) => stats.append(el("span", {}, label + " ", el("b", { text: value })));
+    stat("Severity", f.severity === f.severity_nethermind ? f.severity : `${f.severity} → ${f.severity_nethermind}`);
+    stat("ScaBench", `${fmt(f.description.length)} chars`);
+    stat("Nethermind", `${fmt(f.description_nethermind.length)} chars`);
+    stat("Removed", rs ? `${fmt(rs)} (${KINDS.filter(k => f.removed[k.key]).map(k => k.short).join(", ")})` : "nothing");
+    stat("Title", f.title_change);
+    if (view === "diff") {
+      const d = el("div", { class: "diff" });
+      const t = el("div", { class: "t" }); renderSegs(f.title_segs, t); d.append(t);
+      const p = el("div"); renderSegs(f.segs, p); d.append(p);
+      body.append(d);
+    } else {
+      body.append(el("div", { class: "pair" },
+        el("div", {}, el("h3", { text: "ScaBench (raw)" }), el("pre", { text: `# ${f.title}\n\n${f.description}` })),
+        el("div", {}, el("h3", { text: "Nethermind (raw)" }), el("pre", { text: `# ${f.title_nethermind}\n\n${f.description_nethermind}` }))));
+    }
+  }
+  projSel.addEventListener("change", () => fillFindings());
+  findSel.addEventListener("change", render);
+  only.addEventListener("change", () => fillFindings(findSel.value));
+  const step = d => { const i = findSel.selectedIndex + d; if (i >= 0 && i < findSel.options.length) { findSel.selectedIndex = i; render(); } };
+  document.getElementById("ex-prev").addEventListener("click", () => step(-1));
+  document.getElementById("ex-next").addEventListener("click", () => step(1));
+  document.querySelectorAll("[data-dview]").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-dview]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    view = b.dataset.dview; render();
+  }));
+  // Start on a finding that shows every removal type, if there is one.
+  const start = DATA.findings.find(f => f.removed.credits && f.removed.discussion && f.removed.spillover)
+    || DATA.findings.find(f => removedSum(f) > 0) || DATA.findings[0];
+  projSel.value = start.project_id; fillFindings(start.finding_id);
+}
+
+// ---- recommendation + footer
+{
+  const r = document.getElementById("reco");
+  const ol = el("ol", { class: "reco" });
+  const li = (b, t) => ol.append(el("li", {}, el("b", { text: b }), " " + t));
+  li("Adopt Nethermind's text for the 11 overlapping projects.",
+     `It drops ${pct(removedTotal, S.chars_scabench)} of the judge's ground-truth text with no audit content lost, keeps IDs and severities, and fixes titles. ` +
+     "It also matches what the official scorer's own benchmarks use, so ScaBench and Nethermind results become comparable.");
+  li("Clean the remaining Code4rena projects with the same rules.",
+     `The credits / discussion / spill-over markers reproduce Nethermind's removals exactly on ${S.overlap_findings} findings, so they can be applied mechanically ` +
+     `to the ${c4Uncleaned.length} uncleaned Code4rena projects. Glued inline code needs a re-scrape that keeps spaces around <code> tags.`);
+  li("Re-source the Sherlock projects instead of patching them.",
+     `PDF extraction cut off or fused ${sherlockDamaged} of ${sherlockN} titles and ran words together in descriptions. Each Sherlock finding starts with a ` +
+     "“Source:” link to its judging-repo issue, which holds the original Markdown, so a re-scrape can recover clean text (some links are broken by PDF line wraps).");
+  li("Measure the scoring impact before switching.",
+     "The reference solution scores 1.0 either way, because it submits the ground truth itself. The open question is real agents: re-score existing baseline " +
+     "results against both versions of the 11 projects and compare F1. Discussion text and spill-over (one finding carries a whole QA report) are the parts most likely to sway the judge.");
+  r.append(ol);
+  const foot = document.getElementById("foot");
+  foot.append(el("div", { text: "Regenerate:" }),
+    el("pre", { text: "git clone https://github.com/NethermindEth/auditagent-scoring-algo /tmp/aasa\n" +
+      `git -C /tmp/aasa checkout ${S.scorer_ref}\n` +
+      "python3 datasets/curated-2025-08-18/description-comparison/compare_descriptions.py --nethermind /tmp/aasa" }));
+}
+</script>
+</body>
+</html>
