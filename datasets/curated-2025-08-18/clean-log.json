@@ -1,0 +1,4437 @@
+[
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-01",
+    "note": "",
+    "title_before": "Attakers can steal the funds from long-term reservation"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-02",
+    "note": "",
+    "title_before": "setbidtobuyallows token purchase even when sale is no longer listed"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-03",
+    "note": "",
+    "title_before": "Insufficient price validation intransfer_nftfunction enables theft of listed tokens"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-04",
+    "note": "",
+    "title_before": "Lack of differentiation between rental types leads to loss of funds"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-05",
+    "note": "",
+    "title_before": "Cancelling bid doesn’t clear token approval of bidder allows malicious bidder to steal any tokens listing for sale with auto-approve enabled"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-06",
+    "note": "",
+    "title_before": "Lack of validation insetlistforsellallows changing denom while there is active bid, leading to stealing of other users’ funds"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-07",
+    "note": "",
+    "title_before": "Logic flaw incheck_can_edit_shortallows editing short-term rental before finalization enabling theft of users’ deposited funds"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-08",
+    "note": "",
+    "title_before": "Adversary can usesend_nftto bypass the payment and steal seller’s token in auto-approve scenario"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_H-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#H-09",
+    "note": "",
+    "title_before": "Token owner can burn their token with active rental leading to renters’ funds being stuck"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-01",
+    "note": "",
+    "title_before": "Malicious NFT owners can rug the reservation of the long-term"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-02",
+    "note": "",
+    "title_before": "Users can’t cancel reservation due to out-of-gas"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-03",
+    "note": "",
+    "title_before": "Use ofu64forprice_per_dayandprice_per_monthlimits handling tokens with 18 decimals"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-04",
+    "note": "",
+    "title_before": "Incorrect use ofu64for argamountinwithdrawtolandlordcan cause withdrawal failure"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-05",
+    "note": "",
+    "title_before": "Incorrect refund amount is sent  to the tenant if long term reservation is cancelled after approval"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-06",
+    "note": "",
+    "title_before": "Lack of upfront cost for long-term reservations allows fake reservations, blocking real users"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-07",
+    "note": "",
+    "title_before": "Reservations can be made outside of rental property’savailable_period"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-08",
+    "note": "",
+    "title_before": "Can impersonate another high value rental becausetoken_uriis arbitrary and supplied by user"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_M-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#M-09",
+    "note": "",
+    "title_before": "User supplied owner address which is meant to be token owner is never the token owner"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q1",
+    "note": "",
+    "title_before": "The current logic can’t handle CW20 tokens"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q2",
+    "note": "",
+    "title_before": "Malicious owners can set the fee to 100%"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q3",
+    "note": "",
+    "title_before": "auto_approveis not used in long-term rent"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q4",
+    "note": "",
+    "title_before": "minteris not used in this contract delete it"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q5",
+    "note": "",
+    "title_before": "Useto_json_binaryandfrom_json_binary"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q6",
+    "note": "",
+    "title_before": "cosmwasm-std1.4.0v is vulnerable"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q7",
+    "note": "",
+    "title_before": "The first buyer could get front-runed afterautoApproveget updated"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q8",
+    "note": "",
+    "title_before": "available_periodis not used"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q9",
+    "note": "",
+    "title_before": "The logic doesn’t return the excited funds to the users"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q10",
+    "note": "",
+    "title_before": "Risk of out-of-gas"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q11",
+    "note": "",
+    "title_before": "Risk of 100% cancellation penalty for users"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q12",
+    "note": "",
+    "title_before": "check_can_edit_long()andcheck_can_edit_short()have the same logic"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q13",
+    "note": "",
+    "title_before": "DoS attack"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-14",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q14",
+    "note": "",
+    "title_before": "Use a daily or monthly basis"
+  },
+  {
+    "project_id": "code4rena_coded-estate-invitational_2024_12",
+    "finding_id": "2024-10-coded-estate_L-15",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-10-coded-estate#Q15",
+    "note": "",
+    "title_before": "The functionexecute.rs#depositforlongtermrental()doesn’t check if the deposit amount is enough for the reserved period"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "killGauge()will lead to wrong calculation of emission"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "mVeNFTDOS can’t trigger the vote function"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "TheVoterUpgradeableV2.createV3Gaugefunction incorrectly usesv2GaugeFactoryinstead ofv3GaugeFactory"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "If rewards are not distributed to some gauges in an epoch, it can lead to incorrect rewards distribution in the next epoch"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "boostedValueshould be added topermanentTotalSupplyfor permanently locked tokens"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "dettachFromManagedNFTmight revert and temporarily prevent users from detaching in certain situations"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_M-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "Potential incorrect index update in revived gauge under specific conditions"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "Users can not create the permanent lock directly"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "There is an inconsistency in thevoteandpokefunctions regarding the handling of the end of the voting window"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "TheVoterUpgradeableV2.distributeFees()function always reverts"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "Unnecessary statements in the_checkpointfunction"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "ThelastDistributionTimestampvariable should be always updated in the_distributefunction"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "Thepokefunction does not check voting delay"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "Voting power of a NFT is not used completely"
+  },
+  {
+    "project_id": "code4rena_fenix-finance-invitational_2024_10",
+    "finding_id": "2024-09-fenix-finance_L-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_fenix-finance-invitational_2024_10.json",
+    "note": "",
+    "title_before": "The voting power is not calculated correctly according to the weights assigned by the user during poking"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "createPoolD650E2D0will not work due to mismatch in solidity and stylus function definitions"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_H-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Users are incorrectly refunded when liquidity is insufficient"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_H-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "No slippage control when withdrawing a position leads to loss of funds"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "It’s still not possible to set pool’s protocol fees"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Tokens are pulled from  users without verifying pool status contrary to requirement"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Incorrect slippage handling inswap_internal()"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Pool still remains disabled after initialization requiring 2-step setup process"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Missing ownership check ingrant_positionfunction allows unauthorized position transfers"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "Zero-liquidity position creation allows for storage exhaustion attack"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "DuplicateU256type imports"
+  },
+  {
+    "project_id": "code4rena_superposition_2025_01",
+    "finding_id": "2024-10-superposition_L-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_superposition_2025_01.json",
+    "note": "",
+    "title_before": "mul_modoverflow check only active in debug mode"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Loss of User Funds in VirtualToken’scashInFunction Due to Incorrect Amount Minting"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_H-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "LamboFactory can be permanently DoS-ed due tocreatePaircall reversal"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_H-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Calculation fordirectionMaskis incorrect"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_H-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Anyone can callLamboRebalanceOnUniwap.sol::rebalance()function with any arbitrary value, leading to rebalancing goal i.e. (1:1 peg) unsuccessful."
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Since the cost of launching a new pool is minimal, an attacker can maliciously consumeVirtualTokens"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "LamboRebalanceOnUniswap::_getTokenInOutformula used to compute rebalancing amount is wrong for a UniV3 pool"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "sellQuoteandbuyQuoteare missing deadline check inLamboVEthRouter"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Accumulated ETH in the LamboVEthRouter will be irretrievable"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Incorrect Struct Field and HardcodedsqrtPriceLimitX96in_getQuoteAndDirection"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Attacker can captureVETH-WETHdepeg profits through a malicious pool, rendering rebalancer useless if VETH Price > WETH Price"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Rebalance profit requirement prevents maintaining VETH/WETH peg"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Users can prevent protocol from rebalancing for his gain and cause loss of funds for protocol and its users"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-09",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "Rebalance will be completely dossed if OKX commision rate goes beyond the fee limits"
+  },
+  {
+    "project_id": "code4rena_lambowin_2025_02",
+    "finding_id": "2024-12-lambowin_M-10",
+    "status": "adopted",
+    "source": "nethermind:code4rena_lambowin_2025_02.json",
+    "note": "",
+    "title_before": "LP for v3 pool of underlying tokens with decimals!= 18would have incorrect NFT metadata"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "Rewards might be lost due to the error that_updateRewardIndex()might advancelastBalancewithout advancing index for a token"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_H-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "CDPVault.sol#liquidatePositionBadDebt()doesn’t correctly handle profit and loss"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "Invalid handling of flash loan fees inPositionAction::onCreditFlashLoan, forcing it to always revert"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "Invalid handling of risdual amount inPositionAction::onCreditFlashLoan, forcing it to revert"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "PositionAction4626.sol#_onWithdrawshould withdraw from position CDPVault position instead ofaddress(this)"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_M-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "PositionActionPendle.sol#_onWithdrawdoes not have slippage parameterminOutset"
+  },
+  {
+    "project_id": "code4rena_loopfi_2025_02",
+    "finding_id": "2024-10-loopfi_M-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_loopfi_2025_02.json",
+    "note": "",
+    "title_before": "PositionAction.sol#onCreditFlashLoanmay end up with stuck funds forEXACT_INprimary swaps"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "SecondSwap_Marketplacevesting listing order affects how much the vesting buyers can claim at a given step"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_H-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "transferVestingcreates an incorrect vesting for new users when they purchase a vesting, becausestepsClaimedis the same for all sales, allowing an attacker to prematurely unlock too many tokens"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_H-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "IntransferVesting, thegrantorVesting.releaseRateis calculated incorrectly, which leads to the sender being able to unlock more tokens than were initially locked."
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Incorrect listing type validation bypasses enforcement of minimum purchase amount"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Listing potential can not be purchased with discounted price"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Missing option to remove tokens from theisTokenSupportmapping can result in huge financial loss for users and the protocol"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Creator of one vesting plan can affect vesting plans created by other users."
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Price Granularity Limited by Payment Token Decimals: Cannot List Tokens Cheaper than 0.000001 USDT"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Underflow inclaimableDOSingclaimFunction"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "buyFeeAndsellFeeShould Be Known Before Purchase"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Outdated penalty fee gets charged if the penalty fee has changed since listing"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-09",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Users can prevent being reallocated by listing to marketplace"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-10",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Tokens that have already been vested can be transferred from a user."
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-11",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "maxSellPercentcan be buypassed by selling previously bought vestings at a later time"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-12",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Unauthorized increase ofmaxSellPercent"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-13",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "MarketPlace Change In Vesting Manager, Leads To Loss Of Previous MarketPlace Listing"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-14",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Incorrect referral fee calculations"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-15",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Missing sellable check in completePurchase will cause a user to buy a token marked as unsellable by S2ADMIN if it was listed beforehand"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-16",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Possible DoS scenario when transferring vests to another address"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-17",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Rounding error in stepDuration calculations."
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-18",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Unlisting a vesting after seller has claimed additional steps locks tokens which should have been claimable already"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-19",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Large number of steps in a vesting may lead to loss of beneficiary funds or uneven vesting distribution"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_M-20",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "maxSellPercent will be broken when a vesting is delisted after a seller has claimed additional steps"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "There is no way to unsupport a token"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "There is no check if the_discountPct <= 10000"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Inability to claim tokens iftotalAmount < numOfSteps"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Fake Vesting events generation using inexistentstepVestingaddresses"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Eachmsg.sendercan only have one token"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "Missing check formaxSellPercent <= 10000"
+  },
+  {
+    "project_id": "code4rena_secondswap_2025_02",
+    "finding_id": "2024-12-secondswap_L-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_secondswap_2025_02.json",
+    "note": "",
+    "title_before": "There is no check if the vesting is actually sellable or not"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Users may encounter losses on assets deposited throughStrategySupplyERC4626"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Anyone can callStrategySupplyBase.harvest, allowing users to avoid paying performance fees on interest"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "_deployedAmountnot updated onStrategySupplyBase.undeploy, preventing performance fees from being collected"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "There are multiple issues with the decimal conversions between the vault and the strategy"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "The implementation ofpullTokensWithPermitposes a risk, allowing malicious actors to steal tokens"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Malicious actors can exploit user-approved allowances onVaultRouterto drain their ERC20 tokens"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_H-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Malicious actors can exploit user-approved allowances onVaultRouterto drain their ERC4626 tokens"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-12-bakerfi-invitational#M-01",
+    "note": "Nethermind's copy (and the scrape) hold the Mitigation Review entry '[M-01] Unmitigated'; replaced with the audit's own finding from the report",
+    "title_before": "Unmitigated"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "New strategy can not work due to insufficient allowance"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "MultiStrategy#removeStrategy()cannot remove leverage strategies that still have deployed assets"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Sending tokens to a Strategy whentotalSupplyis 0 can permanently make the Vault unavailable"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Permitdoesn’t work with DAI"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Even when the Vault contract is paused, therebalancefunction is not paused"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-12-bakerfi-invitational#M-07",
+    "note": "Nethermind's copy (and the scrape) hold the Mitigation Review entry '[M-07] Unmitigated'; replaced with the audit's own finding from the report",
+    "title_before": "Unmitigated"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Thedispatchfunction of theVaultRouter, does not work as intended, withPULL_TOKENaction"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-09",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Non-whitelisted recipient can receive shares"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-10",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "The withdrawal of Multi strategies vault could be DoSed while asset deposits remain unaffected"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-11",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "The calculation ofassetsMaxis incorrect."
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-12",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Cannot withdraw tokens from all strategies in MultiStrategyVault when one third party is paused"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-13",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "The Vault Manager is unable to delete the last strategy fromMultiStrategyVault"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-14",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "TheStrategySupplyMorphoallow to use wrong token in_asset"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-15",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "VaultRoutercannot be used for deposits when it reaches the maximum deposit limit"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_M-16",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-12-bakerfi-invitational#M-16",
+    "note": "Nethermind's copy (and the scrape) hold the Mitigation Review entry '[M-16] Unmitigated'; replaced with the audit's own finding from the report",
+    "title_before": "Unmitigated"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Allowance not set to maximum value inenableRoute"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "UseIERC4626.withdrawVaultdoes not check if vault isaddress(0)"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Wrong event emitted inremoveStrategy"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Strategy with different asset token can be registered toMultiStrategyVault"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Allowance remains when removingStrategyfrom MultiStrategyVault"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "MultiStrategyVault does not check for duplicate when registering new strategies"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Not using the parsed valueactionToExecuteinVaultRouter.dispatch"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_bakerfi-invitational_2025_02.json",
+    "note": "",
+    "title_before": "Unused storage variable_approvedSwapTokensexists"
+  },
+  {
+    "project_id": "code4rena_bakerfi-invitational_2025_02",
+    "finding_id": "2024-12-bakerfi-invitational_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-12-bakerfi-invitational#Q9",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "depositNative,withdrawNative,redeemNativefunctions cannot be called from Router"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#H-01",
+    "note": "",
+    "title_before": "Thelock_pooloperation can be DoS"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#H-02",
+    "note": "",
+    "title_before": "Missing Update ofmigration_token_allocationonGlobalStruct"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#M-01",
+    "note": "",
+    "title_before": "Last buy might charge the wrong fee"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#M-02",
+    "note": "",
+    "title_before": "Bonding Curve Invariant Check Incorrectly Validates SOL Balance Due to Rent Inclusion"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#M-03",
+    "note": "",
+    "title_before": "Abrupt fee transition from 8.76% to 1% at slot 250 due to incorrect linear decrease formula"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q1",
+    "note": "",
+    "title_before": "Incorrect Fund Distribution During Migration Due to Unvalidated Escrow Balance Transfer"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q2",
+    "note": "",
+    "title_before": "Fee Calculation in Phase 2 May Lead to Rounding Errors Due to Integer Division"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q3",
+    "note": "",
+    "title_before": "Lack of Maximum Input Amount Validation in Swap Function Could Lead to Unnecessary Transaction Failures"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q4",
+    "note": "",
+    "title_before": "Bonding Curve Creation Lacks URI Validation in Metadata Leading to Potential Malformed Token Information"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q5",
+    "note": "",
+    "title_before": "Hardcoded Gas Fee in Pool Migration Could Lead to Failed Transactions in Network Congestion"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q6",
+    "note": "",
+    "title_before": "Basis Points Multiplication Function Lacks Input Validation Leading to Silent Failures"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q7",
+    "note": "",
+    "title_before": "Trade Event Emission Uses Redundant Clock Calls and Lacks Block Time Validation"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q8",
+    "note": "",
+    "title_before": "Bonding Curve Token Metadata Fields Lack Length Restrictions Leading to Excessive Storage Costs"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q9",
+    "note": "",
+    "title_before": "Bonding Curve Token Account Lock/Unlock Operations Lack Event Emission for Critical State Changes"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q10",
+    "note": "",
+    "title_before": "Emptyremove_wlFunction Implementation Creates Misleading Security Expectation"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q11",
+    "note": "",
+    "title_before": "Hardcoded Program IDs in Constants Create Deployment Inflexibility and Testing Challenges"
+  },
+  {
+    "project_id": "code4rena_pump-science_2025_02",
+    "finding_id": "2025-01-pump-science_L-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-pump-science#Q12",
+    "note": "",
+    "title_before": "Lock Pool Instruction Lacks Escrow Account Address Validation Leading to Potential Fund Lock"
+  },
+  {
+    "project_id": "code4rena_liquid-ron_2025_03",
+    "finding_id": "2025-01-liquid-ron_H-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_liquid-ron_2025_03.json",
+    "note": "",
+    "title_before": "The calculation oftotalAssets()could be wrong ifoperatorFeeAmount > 0, this can cause potential loss for the new depositors"
+  },
+  {
+    "project_id": "code4rena_liquid-ron_2025_03",
+    "finding_id": "2025-01-liquid-ron_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_liquid-ron_2025_03.json",
+    "note": "",
+    "title_before": "User can earn rewards by frontrunning the new rewards accumulation in Ron staking without actually delegating his tokens"
+  },
+  {
+    "project_id": "code4rena_liquid-ron_2025_03",
+    "finding_id": "2025-01-liquid-ron_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_liquid-ron_2025_03.json",
+    "note": "",
+    "title_before": "Operators are unable to perform any actions due to incorrect modifier implementation"
+  },
+  {
+    "project_id": "code4rena_liquid-ron_2025_03",
+    "finding_id": "2025-01-liquid-ron_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_liquid-ron_2025_03.json",
+    "note": "",
+    "title_before": "RiskOut-Of-Gasreverts during deposit and withdraw in reasonable circumstances"
+  },
+  {
+    "project_id": "code4rena_liquid-ron_2025_03",
+    "finding_id": "2025-01-liquid-ron_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-liquid-ron#Q2",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Some users can deposit but can never withdraw"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-iq-ai#H-01",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Adversary can win proposals with voting power as low as 4%"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "Anyone can deploy a newFraxSwapPairwith a Low fee incurring losses to the protocol"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "Attacker can DOS liquidity migration in LiquidityManager.sol"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "Ineffective proposal threshold validation allows setting arbitrary high values"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "Agent.setTokenURI()Function is Missing a Check ThattokenIdExists"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "TheBootstrapPool’s Buy and Sell Functions Lack Slippage Protection"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "AgentRouterWill Not Function Correctly If The DefaultcurrentTokenValue is Changed inAgentFactory"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_iq-ai_2025_03.json",
+    "note": "",
+    "title_before": "Incorrect threshold percentage validation could brick future threshold percentage updates"
+  },
+  {
+    "project_id": "code4rena_iq-ai_2025_03",
+    "finding_id": "2025-01-iq-ai_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-iq-ai#Q5",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Owner can brick moving liquidity leading to failed bootstraping phases"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-01",
+    "note": "",
+    "title_before": "Protocol allows creating broken tri-crypto CPMM pools"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-02",
+    "note": "",
+    "title_before": "Logical error invalidate_fees_are_paidcan cause a DoS or allow users to bypass fees ifdenom_creation_feeincludes multiple coins, includingpool_creation_fee, and the user attempts to pay all fees using onlypool_creation_fee"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-03",
+    "note": "",
+    "title_before": "Multi-token stableswap pools allow0liquidity for tokens, creating bricked pools"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-04",
+    "note": "",
+    "title_before": "Block gas limit can be hit due to loop depth"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-05",
+    "note": "",
+    "title_before": "Farms can be created to start in past epochs"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-06",
+    "note": "",
+    "title_before": "Stable swap pools don’t properly handle assets with different decimals, forcing LPs to receive wrong shares"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-07",
+    "note": "",
+    "title_before": "User cannot claim rewards orclose_position, due to vulnerable division by zero handling"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-08",
+    "note": "",
+    "title_before": "Stableswap pool can be skewed free of fees"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-09",
+    "note": "",
+    "title_before": "Attackers can force the rewards to be stuck in the contract with maliciousx/tokenfactorydenoms"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-10",
+    "note": "",
+    "title_before": "Incorrectslippage_tolerancehandling in stableswapprovide_liquidtyfunction"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-11",
+    "note": "",
+    "title_before": "Stableswap does disjoint swaps, breaking the underlying invariant"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_H-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#H-12",
+    "note": "",
+    "title_before": "Pool creators can manipulate the slippage calculation for liquidity providers"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-01",
+    "note": "",
+    "title_before": "In edge cases,create_poolcan either be reverted or allow user underpay fees"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-02",
+    "note": "",
+    "title_before": "Penalty fees can be shared among future farms or expired farms, risks of exploits"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-03",
+    "note": "",
+    "title_before": "User is unable to claim their reward for the expanded epochs if farm is expanded"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-04",
+    "note": "",
+    "title_before": "withdraw_liquiditylacks slippage protection"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-05",
+    "note": "",
+    "title_before": "Insufficient check on asset decimals input increate_poolallows malicious pool to be created with invalid swap results"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-06",
+    "note": "",
+    "title_before": "Spread calculation does not account for swap fees"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-07",
+    "note": "",
+    "title_before": "query_reverse_simulationdoesn’t account for extra fees when simulating stable reversed swaps"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-08",
+    "note": "",
+    "title_before": "compute_offer_amountfloors theoffer_amountwhen simulating constant product reversed swaps, leading to unexpected results"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-09",
+    "note": "",
+    "title_before": "Single sided liquidity can’t be used to lock LP tokens in the farm manager"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-10",
+    "note": "",
+    "title_before": "Protocol fees are mistakenly configured by protocol pools rather than being imposed"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-11",
+    "note": "",
+    "title_before": "When a user single-side deposit into a pool, slippage protection is invalid"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-12",
+    "note": "",
+    "title_before": "Insufficient intermediate value precision in StableSwap calculations"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-13",
+    "note": "",
+    "title_before": "Wrong simulation function used in reverse operation path"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-14",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-14",
+    "note": "",
+    "title_before": "Amplifiers can’t be ramped allowing loss of funds from the pool"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-15",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-15",
+    "note": "",
+    "title_before": "Emergency unlocking penalty makes long duration positions economically advantageous"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-16",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-16",
+    "note": "",
+    "title_before": "Liquidity providers can lose tokens due to disproportionate deposits not being properly handled"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-17",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-17",
+    "note": "",
+    "title_before": "Slippage tolerance vulnerability in StableSwap"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-18",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-18",
+    "note": "",
+    "title_before": "Stablepools return wrong price when they do not converge"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_M-19",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#M-19",
+    "note": "",
+    "title_before": "Vulnerable liquidity slippage calculation doesn’t ensure slippage protection due to unscaled assets sum"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q1",
+    "note": "",
+    "title_before": "Unvalidated genesis epoch update in Epoch Manager allows manipulation of farm rewards"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q2",
+    "note": "",
+    "title_before": "Reduced Newton-Raphson iterations easily leads to slightly incorrect results due to potential precision loss"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q3",
+    "note": "",
+    "title_before": "Inflation attack protection is not really sufficient"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q4",
+    "note": "",
+    "title_before": "Refunds of fees being paid should be processed for all assets"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q5",
+    "note": "",
+    "title_before": "Validation of the token factory fee should accept cumulative payments"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q6",
+    "note": "",
+    "title_before": "Having a hardcoded maximum slippage should be rethought"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q7",
+    "note": "",
+    "title_before": "Wrong counter load while creating positions unnecessarily hikes cost for users creating positions with explicit identifiers"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q8",
+    "note": "",
+    "title_before": "Stableswap pools are allowed to have an amp value of 0 which would cause a DOS to swaps on pools"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q9",
+    "note": "",
+    "title_before": "Consider allowing a change in the unlocking duration if within valid range when expanding a position"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q10",
+    "note": "",
+    "title_before": "Consider upgrading to CosmWasm 2.2.0 for enhanced migration capabilities"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q11",
+    "note": "",
+    "title_before": "Allow for the reduction of themax_concurrent_farmswhen updating the config"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q12",
+    "note": "",
+    "title_before": "Consider enforcing first liquidity provider to be pool creator"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q13",
+    "note": "",
+    "title_before": "Wrong pool asset length should be correctly flagged during slippage tolerance assertion"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-14",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q14",
+    "note": "",
+    "title_before": "Approach of position creation should fail faster when receiver has exceeded their position limit"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-15",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q15",
+    "note": "",
+    "title_before": "Fix incorrect documentation for position creation authorization check"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-16",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q16",
+    "note": "",
+    "title_before": "Emergency unlock penalty should not be allowed to be up to 100%"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-17",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q17",
+    "note": "",
+    "title_before": "Inaccurate year calculation has been set in as AMM constants"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-18",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q18",
+    "note": "",
+    "title_before": "Inconsistent farm management permissions in sister operations"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-19",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q19",
+    "note": "",
+    "title_before": "Consider conjugating the pool asset lengths validation when creating a pool"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-20",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q20",
+    "note": "",
+    "title_before": "Fix typos"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-21",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q21",
+    "note": "",
+    "title_before": "Remove redundant checks when withdrawing a position"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-22",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q22",
+    "note": "",
+    "title_before": "Wrong code/documentation about fee"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-23",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q23",
+    "note": "",
+    "title_before": "Useassert_adminor remove it since we have thecw-ownablebeing used"
+  },
+  {
+    "project_id": "code4rena_mantra-dex_2025_03",
+    "finding_id": "2024-11-mantra-dex_L-24",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2024-11-mantra-dex#Q24",
+    "note": "",
+    "title_before": "Protocol should be deployment ready"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#H-01",
+    "note": "",
+    "title_before": "Domain pricing relies on pool price, which can be manipulated"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#H-02",
+    "note": "",
+    "title_before": "NFT Token ID contains forbidden character by design which prevents any domain from being issued at all"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_H-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#H-03",
+    "note": "",
+    "title_before": "User can bypassMAX_EXPIRATIONwhen extend expiration"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_H-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#H-04",
+    "note": "",
+    "title_before": "Extending a domain’s expiration even after the grace period impacts domain buyers"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#M-01",
+    "note": "",
+    "title_before": "Loss of funds due to address mappings are not cleaned up after domain expiry"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#M-02",
+    "note": "",
+    "title_before": "get_cost_amountallows unlimited free domain registrations"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#M-03",
+    "note": "",
+    "title_before": "The proposal expiration logic is incorrect"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#M-04",
+    "note": "",
+    "title_before": "Incorrect request type in oracle currency pairs query whitelist breaks price discovery"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q1",
+    "note": "",
+    "title_before": "Unnecessaryclone()inModuleBundle::singletoncausing performance overhead"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q2",
+    "note": "",
+    "title_before": "Wrong telemetry labels for JSON operations in move message server"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q3",
+    "note": "",
+    "title_before": "bigdecimal::rev()lacks explicit division by zero check"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q4",
+    "note": "",
+    "title_before": "Import of protobuf"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q5",
+    "note": "",
+    "title_before": "Method call syntax innative_test_only_set_block_infois not correct"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q6",
+    "note": "",
+    "title_before": "Inconsistent upgrade name constants may lead to upgrade handler failures"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q7",
+    "note": "",
+    "title_before": "Ed25519 public key validation uses size constant (32) instead of error code (1) for invalid length assertion"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q8",
+    "note": "",
+    "title_before": "Contradictorybase_pathexistence check in clean command"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q9",
+    "note": "",
+    "title_before": "Wrong error code is used for maximum name length validation"
+  },
+  {
+    "project_id": "code4rena_initia-move_2025_04",
+    "finding_id": "2025-01-initia-move_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-initia-move#Q10",
+    "note": "",
+    "title_before": "Unchecked withdrawal amount in vault module"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#H-01",
+    "note": "",
+    "title_before": "Early 72-digit adjustment in sqrt will lead to incorrect result exponent calculation"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#H-02",
+    "note": "",
+    "title_before": "Sqrt function silently reverts the entire control flow when a packed float of 0 value is passed"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_H-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#H-03",
+    "note": "",
+    "title_before": "Natural logarithm function silently accepts invalid non-positive inputs"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_H-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#H-04",
+    "note": "",
+    "title_before": "Unwrapping while equating inside theeqfunction fails to account for the setL_MATISSA_FLAG"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_H-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#H-05",
+    "note": "",
+    "title_before": "Precision loss intoPackedFloatfunction when mantissa is in range (MAX_M_DIGIT_NUMBER,MIN_L_DIGIT_NUMBER)"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#M-01",
+    "note": "",
+    "title_before": "Inconsistent mantissa size auto-scaling betweenpackedFloatencoding and calculations will lead to unacceptable rounding errors"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q4",
+    "note": "",
+    "title_before": "No domain check for\\( x \\le 0 \\)"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q5",
+    "note": "",
+    "title_before": "Potential for recursive calls/extreme inputs"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q6",
+    "note": "",
+    "title_before": "Handling of extreme large/small exponents"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q7",
+    "note": "",
+    "title_before": "Piecewise approximation thresholds may be error‐prone"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q8",
+    "note": "",
+    "title_before": "Potential overflow in expressions like10**76 - int(mantissa)"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q9",
+    "note": "",
+    "title_before": "Recommendations/how to fix"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#M-01",
+    "note": "",
+    "title_before": "ERC-20 allowance bypass: spender can force sender to pay extra fees beyond approved amount"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#M-02",
+    "note": "",
+    "title_before": "Approve operation is not overridden to calltransferSanity, thus its allowed to approve blacklisted accounts, which breaks protocol invariant"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#H-01",
+    "note": "",
+    "title_before": "Cross-chain signature replay attack due to user-supplieddomainSeparatorand missing deadline check"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#M-03",
+    "note": "",
+    "title_before": "Lack of deadline check in forwarded request"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q1",
+    "note": "",
+    "title_before": "Incorrect comparison foruint256variables"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q2",
+    "note": "",
+    "title_before": "Inconsistent blacklist enforcement allows minting to blacklisted addresses"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q3",
+    "note": "",
+    "title_before": "Burnfunction implementation deviates from technical specification"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q4",
+    "note": "",
+    "title_before": "Inconsistent zero address validation in token transfers"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q5",
+    "note": "",
+    "title_before": "Missing slippage protection for dynamictxFeeRateandgaslessBasefeefees"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q6",
+    "note": "",
+    "title_before": "Missing blacklist validation inapprove()andpermit()functions"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q7",
+    "note": "",
+    "title_before": "forceTransferfunction implementation deviates from technical specification"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q8",
+    "note": "",
+    "title_before": "Minting allowance update vulnerable to front-running"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q9",
+    "note": "",
+    "title_before": "Solidity pragma should be specific, not wide"
+  },
+  {
+    "project_id": "code4rena_next-generation_2025_05",
+    "finding_id": "2025-01-next-generation_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-01-next-generation#Q10",
+    "note": "",
+    "title_before": "Forwarder::executepayable function can cause loss of funds and failed transactions"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#H-01",
+    "note": "",
+    "title_before": "LP unstaking only burns the shares but leaves the underlying tokens in the system, which distorts the shares-to-tokens ratio and leads to incorrect amounts being calculated during staking and unstaking"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-01",
+    "note": "",
+    "title_before": "Reentrancy Check inlock_staking::reentry_checkCauses Concurrent INIT Deposit Failures (DOS)"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-02",
+    "note": "",
+    "title_before": "Unstaking calculates user share at request time, ignoring slashing — leading to DoS and unfair distribution"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-03",
+    "note": "",
+    "title_before": "Attacker Can Desynchronize Supply Snapshot During Same-Block Unstake, Reducing Everyone’s Rewards"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-04",
+    "note": "",
+    "title_before": "Unstaking from LP pools will cause underflow and lock user funds"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-05",
+    "note": "",
+    "title_before": "Last Holder Can’t Exit, Zero‑Supply Unstake Reverts"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-06",
+    "note": "",
+    "title_before": "LP Redelegation Uses Inaccurate Internal Tracker Amount, Leading to Potential Failures or Orphaned Funds"
+  },
+  {
+    "project_id": "code4rena_cabal-liquid-staking-token_2025_05",
+    "finding_id": "2025-04-cabal-liquid-staking-token_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-cabal-liquid-staking-token#M-07",
+    "note": "",
+    "title_before": "Desynchronization of Cabal’s internal accounting with actual staked INIT amounts leads to over-minting of sxINIT tokens"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#H-01",
+    "note": "",
+    "title_before": "A malicious signed price can be injected inassets.price_tick()"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#H-02",
+    "note": "",
+    "title_before": "_execute_transferwrong order of operations, will first apply diff and then check with applying the diff"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#M-01",
+    "note": "",
+    "title_before": "Deleveragable Positions Cannot Be Fully Liquidated"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#M-02",
+    "note": "",
+    "title_before": "Liquidatable long positions can be forced into short positions and vice versa"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#M-03",
+    "note": "",
+    "title_before": "Stale prices can cause inaccurate validation of funding ticks infunding_tick()"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q1",
+    "note": "",
+    "title_before": "Error in Using the same max Price interval for all ASSETS."
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q2",
+    "note": "",
+    "title_before": "Error in Using the same max funding rate for all synthetic ASSETS."
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q3",
+    "note": "",
+    "title_before": "Owner Account Can Be Overwritten Due to Missing Validation"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q4",
+    "note": "",
+    "title_before": "Missing Curve Validation for Public Keys innew_position"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q5",
+    "note": "",
+    "title_before": "Liquidation should not be paused"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q6",
+    "note": "",
+    "title_before": "Unnecessary Active Asset Checks Block Inactive Position Resolution"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q7",
+    "note": "",
+    "title_before": "Stale Price Usage in Inactive Asset Settlement"
+  },
+  {
+    "project_id": "code4rena_starknet-perpetual_2025_06",
+    "finding_id": "2025-03-starknet-perpetual_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-03-starknet-perpetual#Q8",
+    "note": "",
+    "title_before": "Collateral Transfers and Withdrawals Blocked by Irrelevant Synthetic Asset Validations"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#H-01",
+    "note": "",
+    "title_before": "Router address validation logic error prevents valid router assignment"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#H-02",
+    "note": "",
+    "title_before": "Reward token inGaugeFactoryCLcan be drained by anyone"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-01",
+    "note": "",
+    "title_before": "MinterUpgradeable: double-subtracting smNFT burns causes rebase underpayment"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-02",
+    "note": "",
+    "title_before": "Critical access control flaw: Role removal logic incorrectly grants unauthorized roles"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-03",
+    "note": "",
+    "title_before": "1e10fixed farming reward inGaugeFactoryCL"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-04",
+    "note": "",
+    "title_before": "Logic error in AVM original owner resolution"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-05",
+    "note": "scraped title 'Unmitigated' matched no section; used the report's M-05 by label - verify",
+    "title_before": "Unmitigated"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-06",
+    "note": "",
+    "title_before": "First liquidity provider can DOS the pool of a stable pair"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-07",
+    "note": "",
+    "title_before": "isGenesisflag is ineffective to control add liquidity flow inRouterV2.addLiquidity()"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-08",
+    "note": "",
+    "title_before": "Function return variable shadowing prevents storage updates in solidity"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-09",
+    "note": "",
+    "title_before": "Zero-receiver fund burn"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-10",
+    "note": "scraped title 'Unmitigated' matched no section; used the report's M-10 by label - verify",
+    "title_before": "Unmitigated"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-11",
+    "note": "",
+    "title_before": "Incorrect function call inBribeFactoryV3recoverERC20AndUpdateData"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-12",
+    "note": "",
+    "title_before": "Epoch voting restrictions bypassed viadeposit_for()for blacklisted/non-whitelistedtokenIDs"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-13",
+    "note": "",
+    "title_before": "EIP-712 domain type hash mismatch breaks signature-based delegation"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-14",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-14",
+    "note": "",
+    "title_before": "Checkpoints are incorrectly cleared duringtransferFrom"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-15",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-15",
+    "note": "",
+    "title_before": "L2Governor.execute()acceptsExpired/Defeatedproposals, attacker front-runsBlackGovernornudge(), blocks legitimate emission-rate votes, freezes tail emissions"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-16",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-16",
+    "note": "",
+    "title_before": "getVotesinside theBlackGovernorincorrectly providesblock.numberinstead ofblock.timestamp, leading to complete DOS of proposal functionality"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-17",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-17",
+    "note": "",
+    "title_before": "Users can cast their votes multiple times for the proposal by transferring their nfts and then voting again"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-18",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-18",
+    "note": "",
+    "title_before": "Status does not update inside theBlackGovernorleading to complete distribution of nudge functionality"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-19",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-19",
+    "note": "",
+    "title_before": "Quorum does not include theagainstVotesleading to emissions rate staying the same even if it should decrease"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-20",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-20",
+    "note": "",
+    "title_before": "getsmNFTPastVotesincorrectly checks for Voting Power leading to some NFTs incorrectly being eligible to vote"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-21",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-21",
+    "note": "",
+    "title_before": "Governance emission adjustment ignored when weekly emission above tail threshold"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_M-22",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#M-22",
+    "note": "",
+    "title_before": "Governance deadlock potential inBlackGovernor.soldue to quorum mismatch"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q1",
+    "note": "",
+    "title_before": "Early returning in_blacklist()andblacklistConnectorfunction prevents emission of blacklisted event and blacklistConnector event respectively"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q2",
+    "note": "",
+    "title_before": "Incomplete implementation ofpurchasedfunction in Auction contract"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q3",
+    "note": "",
+    "title_before": "Stack too deep error in inline assembly (variableheadStart)"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q4",
+    "note": "",
+    "title_before": "Hardcoded manager lacks ability to renounce control"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q5",
+    "note": "",
+    "title_before": "Precision loss in smNFT bonus calculation may result in zero bonus when updating to smNFT"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q6",
+    "note": "",
+    "title_before": "getVotes()wiew function becomes unusable when a user owns too many locks"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q7",
+    "note": "",
+    "title_before": "distributeAll()function at risk of repeated failure due to unbounded loop over gauges"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q8",
+    "note": "",
+    "title_before": "Fee recipient may remain set to previous owner"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q9",
+    "note": "",
+    "title_before": "IncorrectsetRouterfunction only allows zero address to pass"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q10",
+    "note": "",
+    "title_before": "Misaligned access control onsetTopNPools()function"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q11",
+    "note": "",
+    "title_before": "Governance/centralization Risks (21 contracts covered)"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q12",
+    "note": "",
+    "title_before": "Function declaration does not follow Solidity style guide atFixedAuction.sol"
+  },
+  {
+    "project_id": "code4rena_blackhole_2025_07",
+    "finding_id": "2025-05-blackhole_L-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-05-blackhole#Q13",
+    "note": "",
+    "title_before": "Incorrect require statement for address check atGaugeV2.sol"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-kinetiq#H-01",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Buffer Silently Locks Staked HYPE in Contract Without Using Them For Withdrawals Or Providing A Way To Be Pulled Out Or Moved To L1"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-kinetiq#H-02",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Users Who Queue Withdrawal Before A Slashing Event Disadvantage Users Who Queue After And Eventually Leads To Loss Of Funds For Them"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_H-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Mishandling of receiving HYPE in the StakingManager, user can’t confirm withdrawal and inflate the exchange ratio"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_M-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Incorrect Balance Check in Validator Redelegation Process May Block Legitimate Rebalancing Operations"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_M-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Missing withdrawal pause check inconfirmWithdrawalallows bypassing withdrawal restrictions"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_M-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Inconsistent State Restoration incancelWithdrawalFunction"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-kinetiq#M-04",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Processing all withdrawals before all deposits can cause some deposit to not be delegated inprocessL1Operations"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-kinetiq#M-05",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Attacker can  partially DoS L1 operations in StakingManager by making huge number of deposits"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-01",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "MissingwhenNotPausedModifier inmintFunction"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-02",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Silent Skipping of Inactive Oracles"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-03",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Unbounded Oracle Iteration"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-04",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Handling of Zero Timestamps"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-05",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Use of Average Instead of Median"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-06",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Incomplete Reporting of Rewards and Slashes"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-07",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Inconsistent Error Message inunpauseContract"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-08",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Inefficient Event Emission inemergencyPauseAll"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-09",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Missing Method to Remove Stale Validators"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-10",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Lack of Sanity Checks for Reward and Slashing Amounts"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-11",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "ImmutabledefaultOracleCreates Single Point of Failure"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-12",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "supportsInterfaceImplementation Non-Compliant with ERC-165"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-13",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Absence of Slippage Protection in Token Conversion"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-14",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Lack of Rate Limiting on Withdrawal Queueing"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-15",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Inaccurate Event Emission for Delegated Amounts"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-16",
+    "status": "adopted",
+    "source": "nethermind:code4rena_kinetiq_2025_07.json",
+    "note": "",
+    "title_before": "Silent Precision Loss in Decimal Conversion"
+  },
+  {
+    "project_id": "code4rena_kinetiq_2025_07",
+    "finding_id": "2025-04-kinetiq_L-17",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-kinetiq#Q17",
+    "note": "Nethermind's copy kept trailing noise (sponsor comment or mitigation-review/QA text); replaced with the report section",
+    "title_before": "Missing Event Emission for Rebalance Withdrawals"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-01",
+    "note": "",
+    "title_before": "Lack of access control inAgentNftV2::addValidator()enables unauthorized validator injection and causes reward accounting inconsistencies"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-02",
+    "note": "",
+    "title_before": "Anybody can control a user’s delegate by callingAgentVeToken.stake()with 1 wei"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-03",
+    "note": "",
+    "title_before": "PublicServiceNft::updateImpactcall leads to cascading issue"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-04",
+    "note": "",
+    "title_before": "PublicContributionNft::mintleads to cascading issues / loss of funds"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-05",
+    "note": "",
+    "title_before": "ValidatorRegistry::validatorScore/getPastValidatorScoreallows validator to earn full rewards without actually engaging with the protocol"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_H-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#H-06",
+    "note": "",
+    "title_before": "MissingprevAgentIdupdate inpromptMulti()function may cause token loss by transferring toaddress(0)"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-01",
+    "note": "",
+    "title_before": "Attacker can prevent user from executing application registered throughinitFromToken()inAgentFactoryV4."
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-02",
+    "note": "",
+    "title_before": "Missing slippage protection on buy and sell"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-03",
+    "note": "",
+    "title_before": "Slippage protection inAgentTax::dcaSellandBondingTax::swapForAssetis calculated at execution time, effectively retrieving the very same price that the trade will be executing at, ultimately providing no protection"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-04",
+    "note": "",
+    "title_before": "Launched tokens are vulnerable to flashloan attacks forcing premature graduation, allowing reward manipulation"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-05",
+    "note": "",
+    "title_before": "Division inBonding.sol._openTradingOnUniswap()results in an incorrectlpSupply, highervaultSupply, and dustAgentTokensgetting locked inFPair"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-06",
+    "note": "",
+    "title_before": "BondingTaxhas invalid slippage implementation"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-07",
+    "note": "",
+    "title_before": "amountOutMinpassed in as 0 inAgentToken::_swapTaxleads to loss of funds due to slippage"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-08",
+    "note": "",
+    "title_before": "Score inAgentDAOis not an accurate measure and can be artificially inflated by spamming proposals"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-09",
+    "note": "",
+    "title_before": "Functions in FERC20 can’t be invoked"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-10",
+    "note": "",
+    "title_before": "MissingtotalSupplyreduction inburnFromallows supply manipulation (ERC20 Violation)"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-11",
+    "note": "",
+    "title_before": "AgentDAO::_castVotedoesn’t check the array of votes emitted, which determine the number of battles fought inEloCalculator.sol, allowing the user to increase the ELO of a contribution unfairly, inflating the maturity/impact ofServiceNFTs"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-12",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-12",
+    "note": "",
+    "title_before": "No slippage protection during adding liquidity to uniswap"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-13",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-13",
+    "note": "",
+    "title_before": "Removal of a liquidity pool onAgentToken::removeLiquidityPoolstill incurs taxes on swaps"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-14",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-14",
+    "note": "",
+    "title_before": "VotesUpgradeable::delegatebypasses theaddValidatorcall, leads to a non-validator holding voting power along with loss of rewards"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-15",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-15",
+    "note": "",
+    "title_before": "IfFFactory::buyTaxand / orFFactory::sellTaxis set to 0, buy / sell would revert"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-16",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-16",
+    "note": "",
+    "title_before": "Elocalculation error"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-17",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-17",
+    "note": "",
+    "title_before": "VirtualGenesisDAO.sol:earlyExecute()proposals can be executed two times"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-18",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-18",
+    "note": "",
+    "title_before": "Genesis.sol:onGenesisSuccess()users may lose their unclaimedagentTokensif a second launch occurs before they’ve claimed their rewards from the first"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-19",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-19",
+    "note": "",
+    "title_before": "Lack of maturity check for non-founder users allowing immediate withdrawals"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-20",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-20",
+    "note": "",
+    "title_before": "Delegation not revoked on withdrawal allows reward and voting power inflation post-maturity"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-21",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-21",
+    "note": "",
+    "title_before": "battleElois at risk of underflow revert, which may DOS voting"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-22",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-22",
+    "note": "",
+    "title_before": "Founder has to double-stake during migration with the initial LP locked in the oldveToken"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-23",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-23",
+    "note": "",
+    "title_before": "UsingAgentFactory::setAssetTokenwill lead to loss of funds"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-24",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-24",
+    "note": "",
+    "title_before": "Precision loss inpriceALastandpriceBLast"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-25",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-25",
+    "note": "",
+    "title_before": "Incorrect mathematical logic"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_M-26",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#M-26",
+    "note": "",
+    "title_before": "Imprecise calculations inlaunchFor()lead to less liquidity be added to the pair via the router"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-01",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q1",
+    "note": "",
+    "title_before": "Missing update ofprevAgentIdinpromptMulti"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-02",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q2",
+    "note": "",
+    "title_before": "Duplicate import statement forMath.sol"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-03",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q3",
+    "note": "",
+    "title_before": "InvalidagentIdleads to token burning"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-04",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q4",
+    "note": "",
+    "title_before": "Risky one-step admin transfer inContributionNft.sol"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-05",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q5",
+    "note": "",
+    "title_before": "Fee-induced reserve inconsistency inFRouter"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-06",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q6",
+    "note": "",
+    "title_before": "Duplicate import statement forAgentFactoryV3.solinFGenesis.sol"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-07",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q7",
+    "note": "",
+    "title_before": "Misconception in usingblock.timestamp + Xfor swap deadlines"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-08",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q8",
+    "note": "",
+    "title_before": "Widespread use of infinite token approvals"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-09",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q9",
+    "note": "",
+    "title_before": "Missingvirtualfunctions for inheritance"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-10",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q10",
+    "note": "",
+    "title_before": "totalSupplynot updated on burning inFERC20"
+  },
+  {
+    "project_id": "code4rena_virtuals-protocol_2025_08",
+    "finding_id": "2025-04-virtuals-protocol_L-11",
+    "status": "cleaned",
+    "source": "https://code4rena.com/reports/2025-04-virtuals-protocol#Q11",
+    "note": "",
+    "title_before": "Wrong max transaction limit after burns"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_H-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Validator can bypass delegator for staking rewards"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_H-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing validators in_getValidators()due to token ID gaps"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_H-03",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Slashing penalties circumvented due to missing balance reset in_consensusBurn()"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_M-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Change of epoch Issuance takes effect in the current epoch potentially leading to higher rewards than expected"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_M-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing BLS public key uniqueness check allows duplicate validator keys"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "PayablepermitWrapfunction can silently lose user funds"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "stakedoes not validate all intended staking parameters"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-03",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Invalid committee size check when ejecting validator"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-04",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing validation inupgradeStakeVersion()function"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-05",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing Transfer events in InterchainTEL's_mint()and_burn()functions"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-06",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Incorrect eligible validators check during validator ejection"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-07",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Rewards are payed out fromStakeManagerinstead ofIssuance"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-08",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing zero committee size check in_checkCommitteeSize()function"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_L-09",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Genesis validator stake allocation lacks explicit verification"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Missing event emission for validator slashing"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Incorrect balance check in Issuance'sdistributeStakeReward()"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-03",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "_updateEpochInfostores end block number of previous epoch instead of start block of the new epoch"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-04",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Incorrect iTEL mint amount if baseERC20 charges fees"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-05",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "NewEpoch event mixes information about different epochs"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-06",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Consider seperating the pauser role"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-07",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Ineffective replay protection in validator delegation"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-08",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Delegation risk and reward asymmetry in consensus system"
+  },
+  {
+    "project_id": "cantina_smart-contract-audit-of-tn-contracts_2025_08",
+    "finding_id": "bde1352c-e0f2-47db-b9f7-231ed1b20642_I-09",
+    "status": "adopted",
+    "source": "nethermind:cantina_smart-contract-audit-of-tn-contracts_2025_08.json",
+    "note": "",
+    "title_before": "Potential duplicate validators in committee without validation"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_H-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "execute calls can be front-run"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_H-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "execute calls can be forced to fail with an out of gas error"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_L-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "Potential double-counting allowance risk"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_L-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "off-by-one issue inisExpired()"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_L-03",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "Potential privilege escalation in nonce management"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_L-04",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "_checkExpiry will revert if the signature is expired in validateUserOp"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-01",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "ModeDecoder implements a subset of EIP‑7821"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-02",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "Incorrect comment"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-03",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "hookData is not included in the signature digest"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-04",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "MinimalDelegation EntryPoint compatibility"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-05",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "EntryPoint Version v0.6.0"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-06",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "EntryPoint Version v0.7.0"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-07",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "EntryPoint Version v0.8.0"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-08",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "Use of unlicensed smart contracts"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-09",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "When transferring 0 amount, ERC7914 is better to return true"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-10",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "_execute()may callhandleAfterExecute()on stale hook"
+  },
+  {
+    "project_id": "cantina_minimal-delegation_2025_04",
+    "finding_id": "5df7a03f-e3d3-4407-9b21-8a36f1739d3e_I-11",
+    "status": "adopted",
+    "source": "nethermind:cantina_minimal-delegation_2025_04.json",
+    "note": "",
+    "title_before": "validateUserOp()should not return early when the signature is invalid"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/27",
+    "note": "",
+    "title_before": "Market coordinator can steal all market collat-"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/29",
+    "note": "",
+    "title_before": "Market coordinator can liquidate all users in"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/40",
+    "note": "",
+    "title_before": "Market coordinator can steal all market col-"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/42",
+    "note": "",
+    "title_before": "Maliciously specifying a very large intent.price"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/52",
+    "note": "",
+    "title_before": "Lack of access control in the"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/58",
+    "note": "",
+    "title_before": "Market coordinator can set stale After to a huge"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_H-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/84",
+    "note": "",
+    "title_before": "Perennial account users with rebalance group"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/16",
+    "note": "",
+    "title_before": "Multi Invoker and Manager orders execution can"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/18",
+    "note": "",
+    "title_before": "Multi Invoker , Manager and Account unexpected"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/20",
+    "note": "",
+    "title_before": "Controller 's core function of Rebalance will"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/34",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "settle () async Fee is left in the Keep Factory"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/35",
+    "note": "",
+    "title_before": "when Reserve Base undercollateralized , Man-"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/36",
+    "note": "",
+    "title_before": "_ineligible () redemption Eligible is miscalcu-"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/41",
+    "note": "",
+    "title_before": "Market coordinator can set proportional and"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/53",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Corrupted storage after upgrade in the Market Factory"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-09",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/54",
+    "note": "",
+    "title_before": "Anyone can cancel other accounts nonces and"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-10",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/55",
+    "note": "",
+    "title_before": "The Market.migrate () function has no effect"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-11",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/62",
+    "note": "",
+    "title_before": "Trigger Order.notional Value () Using the wrong"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-12",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/66",
+    "note": "",
+    "title_before": "Emptyset reserve strategies may revert when"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-13",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/69",
+    "note": "",
+    "title_before": "The Risk Parameter.liquidation Fee variable is"
+  },
+  {
+    "project_id": "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+    "finding_id": "2024.09.13 - Final - Perennial V2 Update 3 Audit Report_M-14",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-perennial-v2-update-3-judging/issues/79",
+    "note": "",
+    "title_before": "Keepers can lose compensation fee"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/43",
+    "note": "",
+    "title_before": "Unable to call some functions in"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/263",
+    "note": "",
+    "title_before": "Incentive Bits.set Or Throw () will re-"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/106",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Both block.prevrandao and"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/158",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Boost creator can collect all the"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/178",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "claim Incentive For Might Lead To"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/325",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Budget allocation will break in"
+  },
+  {
+    "project_id": "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+    "finding_id": "2024.09.20 - Final - Boost Core Incentive Protocol Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-06-boost-aa-wallet-judging/issues/460",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "The incentive contracts are not"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/66",
+    "note": "",
+    "title_before": "Incorrect implementation"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/84",
+    "note": "",
+    "title_before": "Attacker can freeze chain and"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/91",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Rollup.sol cannot split batches"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/104",
+    "note": "",
+    "title_before": "Possible wrong accounting in"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/142",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "The 255 th staker in L 1 Staking.s"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/143",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Batches committed during an"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/145",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Malicious challenger can brick f"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/146",
+    "note": "",
+    "title_before": "A batch can be unintentionally"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/157",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Delegators can lose their re-"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/168",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Stakers lose their commission"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-09",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/178",
+    "note": "",
+    "title_before": "Attacker can fill merkle tree in"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-10",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/186",
+    "note": "",
+    "title_before": "Malicious sequencer can"
+  },
+  {
+    "project_id": "sherlock_morph-l-2_2024_09",
+    "finding_id": "2024.09.23 - Final - MorphL2 Audit Report_M-11",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-morphl2-judging/issues/220",
+    "note": "",
+    "title_before": "In the revert Batch function, in"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/64",
+    "note": "",
+    "title_before": "Unsafe Type Castingin Token"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/357",
+    "note": "",
+    "title_before": "Attackerscandrainthe"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/421",
+    "note": "",
+    "title_before": "Lack of non Reentrant modifier"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/542",
+    "note": "",
+    "title_before": "Userscanmodifyacancelledor-"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/700",
+    "note": "",
+    "title_before": "attackercandrain Stop Limitcon-"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/745",
+    "note": "",
+    "title_before": "Failuretoresetunspentapproval"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/761",
+    "note": "",
+    "title_before": "stop Limit Idcollisionwithbracket"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_H-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/789",
+    "note": "issue severity Medium vs dataset high (dataset kept)",
+    "title_before": "Insecurecallsto safe Transfer"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/72",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Bracketand Stop Limitcontracts"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/115",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Incorrect Freshness Logic Vali-"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/146",
+    "note": "",
+    "title_before": "Orderwillbeexecutedwithwrong"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/202",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Usercanbrickthe Bracketcon-"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/277",
+    "note": "",
+    "title_before": "In Oracle Less.create Order () fee-"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/331",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Amaliciousattackercancreate"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/424",
+    "note": "",
+    "title_before": "Malicious Usercan Poison"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/429",
+    "note": "",
+    "title_before": "Create order can be DOSed as"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-09",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/449",
+    "note": "",
+    "title_before": "Stop Limit ordercannotbefilled"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-10",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/589",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "cancel Order ordercanbe DOSed"
+  },
+  {
+    "project_id": "sherlock_oku_2024_12",
+    "finding_id": "2024.12.09 - Final - Oku's New Order Types Contract Contest Audit Report_M-11",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-oku-judging/issues/731",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Malicioususerscan create Order"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/33",
+    "note": "",
+    "title_before": "_requested Tip is not deduced"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/31",
+    "note": "",
+    "title_before": "Updating earning power for de-"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/42",
+    "note": "",
+    "title_before": "Frequently bumping to increase"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/41",
+    "note": "",
+    "title_before": "Earning power is close to"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/40",
+    "note": "",
+    "title_before": "Unused import"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/39",
+    "note": "",
+    "title_before": "Oracle begins in stale state due"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/37",
+    "note": "",
+    "title_before": "Increasing delegate eligibility"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/36",
+    "note": "",
+    "title_before": "Deposits can be maliciously"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/35",
+    "note": "",
+    "title_before": "Increasing the earning power of"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/34",
+    "note": "",
+    "title_before": "_calculate Total Earning Power for-"
+  },
+  {
+    "project_id": "sherlock_tally_2024_12",
+    "finding_id": "2024.12.17 - Final - Tally Collaborative Audit Report_L-09",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-11-tally/issues/32",
+    "note": "",
+    "title_before": "Governance Staker On Behalf"
+  },
+  {
+    "project_id": "sherlock_idle-finance_2024_12",
+    "finding_id": "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_H-01",
+    "status": "kept",
+    "source": "sherlock-audit/2024-12-idle-finance-judging",
+    "note": "judging repo sherlock-audit/2024-12-idle-finance-judging returns 404; original scraped text kept by decision"
+  },
+  {
+    "project_id": "sherlock_idle-finance_2024_12",
+    "finding_id": "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_H-02",
+    "status": "kept",
+    "source": "sherlock-audit/2024-12-idle-finance-judging",
+    "note": "judging repo sherlock-audit/2024-12-idle-finance-judging returns 404; original scraped text kept by decision"
+  },
+  {
+    "project_id": "sherlock_idle-finance_2024_12",
+    "finding_id": "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-01",
+    "status": "kept",
+    "source": "sherlock-audit/2024-12-idle-finance-judging",
+    "note": "judging repo sherlock-audit/2024-12-idle-finance-judging returns 404; original scraped text kept by decision"
+  },
+  {
+    "project_id": "sherlock_idle-finance_2024_12",
+    "finding_id": "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-02",
+    "status": "kept",
+    "source": "sherlock-audit/2024-12-idle-finance-judging",
+    "note": "judging repo sherlock-audit/2024-12-idle-finance-judging returns 404; original scraped text kept by decision"
+  },
+  {
+    "project_id": "sherlock_idle-finance_2024_12",
+    "finding_id": "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-03",
+    "status": "kept",
+    "source": "sherlock-audit/2024-12-idle-finance-judging",
+    "note": "judging repo sherlock-audit/2024-12-idle-finance-judging returns 404; original scraped text kept by decision"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/66",
+    "note": "",
+    "title_before": "Lack of slippage protection"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/68",
+    "note": "",
+    "title_before": "Flash Swap Router:: empty Reserve ()"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/106",
+    "note": "",
+    "title_before": "LV token holders receive propor-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/119",
+    "note": "",
+    "title_before": "Incorrect redeem Amount Is Ac-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/126",
+    "note": "",
+    "title_before": "Incoming Redemption Assets"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/144",
+    "note": "",
+    "title_before": "Users will steal excess funds"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/155",
+    "note": "",
+    "title_before": "Wrong accounting of locked RA"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-08",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/156",
+    "note": "",
+    "title_before": "Admin new issuance or user"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-09",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/161",
+    "note": "",
+    "title_before": "Attackers will steal the reserve"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-10",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/166",
+    "note": "",
+    "title_before": "Users redeeming early will with-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _H-11",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/191",
+    "note": "",
+    "title_before": "Vault Pool Lib:: reserve () will"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/47",
+    "note": "",
+    "title_before": "The UUPS proxie standard is im-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/182",
+    "note": "",
+    "title_before": "Admin will not be able to only"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/185",
+    "note": "",
+    "title_before": "Admin will not be able to up-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/186",
+    "note": "",
+    "title_before": "Attacker Can Decide The Initial-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/211",
+    "note": "",
+    "title_before": "Withdrawing all lvbefore expiry"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/235",
+    "note": "",
+    "title_before": "Rebasing tokens are not sup-"
+  },
+  {
+    "project_id": "sherlock_cork-protocol_2025_01",
+    "finding_id": "2025.01.02 - Final - Cork Best Efforts Audit Contest Report _M-07",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-08-cork-protocol-judging/issues/240",
+    "note": "",
+    "title_before": "Providing liquidity to the AMM"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/114",
+    "note": "",
+    "title_before": "Boost buyback burns incorrect"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_H-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/239",
+    "note": "issue severity Medium vs dataset high (dataset kept)",
+    "title_before": "V 2 AMO is not compatible with"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_H-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/242",
+    "note": "",
+    "title_before": "V 3 AMO integration with V 3"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_H-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/280",
+    "note": "",
+    "title_before": "Liquidity is incorrectly calcu-"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/36",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Boost can be sold under peg de-"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/47",
+    "note": "",
+    "title_before": "V 2 AMO and V 3 AMO: USDT Ap-"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/155",
+    "note": "",
+    "title_before": "Contracts of the codebase will"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/191",
+    "note": "",
+    "title_before": "Precision loss in boost Price in V"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/244",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Master AMO should not use the"
+  },
+  {
+    "project_id": "sherlock_axion_2025_01",
+    "finding_id": "2025.01.03 - Final - Axion Audit Report_M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2024-10-axion-judging/issues/268",
+    "note": "",
+    "title_before": "The V 3 AMO._mint And Sell Boost ("
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/575",
+    "note": "",
+    "title_before": "USDC rewards will not be distributed if _-"
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/86",
+    "note": "",
+    "title_before": "Incorrect initializer modifier in Vesting"
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/124",
+    "note": "",
+    "title_before": "Readding the reward token causes user-"
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/509",
+    "note": "",
+    "title_before": "Bad check in Vesting.sol::_reset Vesting"
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/595",
+    "note": "",
+    "title_before": "Malicious User can dilute staking Rewards"
+  },
+  {
+    "project_id": "sherlock_symmio_2025_03",
+    "finding_id": "2025.03.10 - Final - Symmio, Staking and Vesting Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-symm-io-stacking-judging/issues/650",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Double spending attack in the Vesting"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_H-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/260",
+    "note": "",
+    "title_before": "Anyone who is approving Blueprint V 5 con-"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-01",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/205",
+    "note": "",
+    "title_before": "create Common Project IDAnd Deployment"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-02",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/225",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Signatures missing some parameters be-"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-03",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/391",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Signature Replay attack possible on"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-04",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/467",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Lack of access control in set Worker"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-05",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/509",
+    "note": "",
+    "title_before": "Worker-Induced Denial-of-Service in De-"
+  },
+  {
+    "project_id": "sherlock_crestal-network_2025_03",
+    "finding_id": "2025.03.14 - Final - Crestal Network Audit Report_M-06",
+    "status": "cleaned",
+    "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/576",
+    "note": "issue severity High vs dataset medium (dataset kept)",
+    "title_before": "Non whitelisted user can also create agent"
+  }
+]

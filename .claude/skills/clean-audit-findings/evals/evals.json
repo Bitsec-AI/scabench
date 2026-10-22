@@ -1,0 +1,76 @@
+{
+  "skill_name": "clean-audit-findings",
+  "input": {
+    "description": "All evals start from the scraped dataset as it was before any cleaning. Freeze it to a file and substitute its path for <INPUT>; substitute the run's output directory for <OUT>.",
+    "command": "git show 55ad728:datasets/curated-2025-08-18/curated-2025-08-18.json > <INPUT>"
+  },
+  "evals": [
+    {
+      "id": 1,
+      "name": "c4-uncleaned",
+      "prompt": "The finding text for some of our Code4rena projects is full of scraper junk: credit lists, sponsor/judge comments, stuff from other parts of the report, inline code glued to words. Please clean the titles and descriptions for these 10 projects in <INPUT>: code4rena_coded-estate-invitational_2024_12, code4rena_pump-science_2025_02, code4rena_mantra-dex_2025_03, code4rena_initia-move_2025_04, code4rena_forte-float128-solidity-library_2025_04, code4rena_next-generation_2025_05, code4rena_cabal-liquid-staking-token_2025_05, code4rena_starknet-perpetual_2025_06, code4rena_blackhole_2025_07, code4rena_virtuals-protocol_2025_08. Don't change anything else. Save the full dataset with the cleaned text to <OUT>/cleaned.json and write <OUT>/notes.md listing anything you couldn't clean and why.",
+      "expected_output": "cleaned.json identical to the input except title/description of the 10 projects; every finding re-fetched from its code4rena.com report section with credits, discussion and spill-over removed, inline code backticked, no content lost; notes.md. blackhole M-05/M-10 replaced by the audit's own M-05/M-10 (the scraped text came from the Mitigation Review section).",
+      "targets": [
+        "code4rena_coded-estate-invitational_2024_12",
+        "code4rena_pump-science_2025_02",
+        "code4rena_mantra-dex_2025_03",
+        "code4rena_initia-move_2025_04",
+        "code4rena_forte-float128-solidity-library_2025_04",
+        "code4rena_next-generation_2025_05",
+        "code4rena_cabal-liquid-staking-token_2025_05",
+        "code4rena_starknet-perpetual_2025_06",
+        "code4rena_blackhole_2025_07",
+        "code4rena_virtuals-protocol_2025_08"
+      ],
+      "unresolvable": [],
+      "gold": false,
+      "reviewed": {
+        "2025-05-blackhole_M-05": "scraped original is the Mitigation Review entry '[M-05] Unmitigated'; the audit's M-05 is a different text, so low retention is expected",
+        "2025-05-blackhole_M-10": "scraped original is the Mitigation Review entry '[M-10] Unmitigated'; the audit's M-10 is a different text, so low retention is expected"
+      },
+      "expect_titles_not": {
+        "2025-05-blackhole_M-05": "Unmitigated",
+        "2025-05-blackhole_M-10": "Unmitigated"
+      }
+    },
+    {
+      "id": 2,
+      "name": "sherlock-resource",
+      "prompt": "The Sherlock projects in <INPUT> were scraped from the PDF reports and the text is mangled: titles cut off mid-word, words run together, identifiers split apart. Re-source the titles and descriptions of all 10 Sherlock projects from the original GitHub issues instead of trying to patch the text. Keep finding IDs and severities as they are and don't touch other projects. Save the full dataset to <OUT>/cleaned.json and put anything you couldn't resolve, with the reason, in <OUT>/notes.md.",
+      "expected_output": "cleaned.json identical to the input except title/description of the Sherlock projects; each finding taken from its judging-repo issue (full title, Markdown body, no header/discussion); idle-finance (judging repo 404) left unchanged and reported in notes.md rather than patched or invented.",
+      "targets": [
+        "sherlock_20240913---final---perennial-v2-update-3-audit-report_2024_09",
+        "sherlock_20240920---final---boost-core-incentive-protocol-audit-report_2024_09",
+        "sherlock_morph-l-2_2024_09",
+        "sherlock_oku_2024_12",
+        "sherlock_tally_2024_12",
+        "sherlock_idle-finance_2024_12",
+        "sherlock_cork-protocol_2025_01",
+        "sherlock_axion_2025_01",
+        "sherlock_symmio_2025_03",
+        "sherlock_crestal-network_2025_03"
+      ],
+      "unresolvable": [
+        "sherlock_idle-finance_2024_12"
+      ],
+      "gold": false,
+      "reviewed": {}
+    },
+    {
+      "id": 3,
+      "name": "c4-vs-nethermind",
+      "prompt": "Clean up the finding titles and descriptions for code4rena_liquid-ron_2025_03, code4rena_iq-ai_2025_03 and code4rena_lambowin_2025_02 in <INPUT>. They have the usual scraper noise (credits, judge/sponsor comments, other report sections stuck on, glued inline code). Don't use Nethermind's auditagent-scoring-algo copies of these projects; we're grading against those. Save the full dataset to <OUT>/cleaned.json and note anything unresolved in <OUT>/notes.md.",
+      "expected_output": "cleaned.json identical to the input except the 3 projects; descriptions match Nethermind's cleaned copies at >=0.95 word recall (after removing the few noise remnants in those copies), with no noise left.",
+      "targets": [
+        "code4rena_liquid-ron_2025_03",
+        "code4rena_iq-ai_2025_03",
+        "code4rena_lambowin_2025_02"
+      ],
+      "unresolvable": [],
+      "gold": true,
+      "reviewed": {
+        "2025-01-iq-ai_L-05": "the scraped original and Nethermind's copy both include the [N-01]..[N-03] non-critical items that follow L-05 in the report; the finding's own section ends at [N-01]"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "2024-12-bakerfi-invitational_M-01": "the scraped original (and Nethermind's copy) is the report's Mitigation Review entry '[M-01] Unmitigated', which reuses the label; replaced with the audit's own M-01 from https://code4rena.com/reports/2024-12-bakerfi-invitational - low retention and a new title are expected",
+  "2024-12-bakerfi-invitational_M-07": "the scraped original (and Nethermind's copy) is the report's Mitigation Review entry '[M-07] Unmitigated', which reuses the label; replaced with the audit's own M-07 from https://code4rena.com/reports/2024-12-bakerfi-invitational - low retention and a new title are expected",
+  "2024-12-bakerfi-invitational_M-16": "the scraped original (and Nethermind's copy) is the report's Mitigation Review entry '[M-16] Unmitigated', which reuses the label; replaced with the audit's own M-16 from https://code4rena.com/reports/2024-12-bakerfi-invitational - low retention and a new title are expected",
+  "2025-05-blackhole_M-05": "the scraped original (and Nethermind's copy) is the report's Mitigation Review entry '[M-05] Unmitigated', which reuses the label; replaced with the audit's own M-05 from https://code4rena.com/reports/2025-05-blackhole - low retention and a new title are expected",
+  "2025-05-blackhole_M-10": "the scraped original (and Nethermind's copy) is the report's Mitigation Review entry '[M-10] Unmitigated', which reuses the label; replaced with the audit's own M-10 from https://code4rena.com/reports/2025-05-blackhole - low retention and a new title are expected",
+  "2025-01-iq-ai_L-05": "the scraped original continued through the report's [N-01]..[N-03] non-critical items and the mitigation-review intro; the cleaned text is L-05's own section, so retention against the original is low",
+  "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_H-01": "no re-fetchable source (judging and contest repos return 404); scraped PDF text kept by decision, so PDF damage remains",
+  "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_H-02": "no re-fetchable source (judging and contest repos return 404); scraped PDF text kept by decision, so PDF damage remains",
+  "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-01": "no re-fetchable source (judging and contest repos return 404); scraped PDF text kept by decision, so PDF damage remains",
+  "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-02": "no re-fetchable source (judging and contest repos return 404); scraped PDF text kept by decision, so PDF damage remains",
+  "2024.12.21 - Final - Idle Finance Credit Vaults Audit Report_M-03": "no re-fetchable source (judging and contest repos return 404); scraped PDF text kept by decision, so PDF damage remains"
+}
