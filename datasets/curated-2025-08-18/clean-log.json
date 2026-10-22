@@ -4433,5 +4433,29 @@
     "source": "https://github.com/sherlock-audit/2025-03-crestal-network-judging/issues/576",
     "note": "issue severity High vs dataset medium (dataset kept)",
     "title_before": "Non whitelisted user can also create agent"
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-07",
+    "status": "added",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q1",
+    "note": "Float128.sol QA item [01], missing from the ScaBench scrape (whose L-01..L-06 are the Ln.sol items); added as L-07 to keep existing ids",
+    "title_before": ""
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-08",
+    "status": "added",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q2",
+    "note": "Float128.sol QA item [02], missing from the ScaBench scrape (whose L-01..L-06 are the Ln.sol items); added as L-08 to keep existing ids",
+    "title_before": ""
+  },
+  {
+    "project_id": "code4rena_forte-float128-solidity-library_2025_04",
+    "finding_id": "2025-04-forte-float128-solidity-library_L-09",
+    "status": "added",
+    "source": "https://code4rena.com/reports/2025-04-forte-float128-solidity-library#Q3",
+    "note": "Float128.sol QA item [03], missing from the ScaBench scrape (whose L-01..L-06 are the Ln.sol items); added as L-09 to keep existing ids",
+    "title_before": ""
   }
 ]

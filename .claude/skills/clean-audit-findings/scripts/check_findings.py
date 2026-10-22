@@ -7,6 +7,8 @@ Check cleaned finding text against the original dataset. Pass/fail per project.
 
 Per project (default: every project whose text changed):
   structure  same finding IDs, order and severities; no empty title or description            (fail)
+             findings the --log records as "added" (missing from the original scrape) may follow the originals;
+             they get the noise check only, as there is no original text to compare with
   noise      no credits / discussion / spill-over / PDF damage left in prose or titles          (fail)
              glued inline code is a heuristic, reported as a warning
   retention  each cleaned description still contains the original's content, measured as the share of the
@@ -51,13 +53,25 @@ def gold_scores(clean, gold):
     return hit / len(a), (hit / len(b) if b else 0.0)
 
 
-def check_project(orig, clean, gold, sources, reviewed):
-    res = {"project_id": orig["project_id"], "findings": len(orig["vulnerabilities"]), "fail": [], "warn": [],
+def check_project(orig, clean, gold, sources, reviewed, added=frozenset()):
+    res = {"project_id": orig["project_id"], "findings": len(clean["vulnerabilities"]), "fail": [], "warn": [],
            "noise": Counter(), "flagged": []}
     ov, cv = orig["vulnerabilities"], clean["vulnerabilities"]
-    if [v["finding_id"] for v in ov] != [v["finding_id"] for v in cv]:
+    extra = cv[len(ov):]
+    if [v["finding_id"] for v in ov] != [v["finding_id"] for v in cv[:len(ov)]] or any(
+            v["finding_id"] not in added for v in extra):
         res["fail"].append("finding IDs or order changed")
         return res
+    for b in extra:
+        if not b["title"].strip() or not b["description"].strip():
+            res["fail"].append(f"{b['finding_id']}: empty title or description")
+        for k, hit in detect(b["title"], b["description"], prose_only=True).items():
+            if hit:
+                res["noise"][k] += 1
+                res["flagged"].append({"finding_id": b["finding_id"], "flags": [k], "title": b["title"][:100],
+                                       "source": sources.get(b["finding_id"], "")})
+    if extra:
+        res["warn"].append(f"{len(extra)} finding(s) added from the source: {', '.join(v['finding_id'] for v in extra)}")
     if any(a["severity"] != b["severity"] for a, b in zip(ov, cv)):
         res["fail"].append("severity changed")
     gold_map = {v["finding_id"]: v for v in gold["vulnerabilities"]} if gold else {}
@@ -150,15 +164,17 @@ def main():
     if gold_dir and (gold_dir / "data" / "source_of_truth").is_dir():
         gold_dir = gold_dir / "data" / "source_of_truth"
     reviewed = json.loads(args.reviewed.read_text()) if args.reviewed else {}
-    sources = {}
+    sources, added = {}, set()
     if args.log:
-        sources = {e["finding_id"]: e.get("source", "") for e in json.loads(args.log.read_text())}
+        log = json.loads(args.log.read_text())
+        sources = {e["finding_id"]: e.get("source", "") for e in log}
+        added = {e["finding_id"] for e in log if e.get("status") == "added"}
 
     report, failed = [], 0
     for pid in ids:
         gold_path = gold_dir / f"{pid}.json" if gold_dir else None
         gold = json.loads(gold_path.read_text()) if gold_path and gold_path.exists() else None
-        r = check_project(orig[pid], clean[pid], gold, sources, reviewed)
+        r = check_project(orig[pid], clean[pid], gold, sources, reviewed, added)
         report.append(r)
         verdict = "FAIL" if r["fail"] else "PASS*" if r.get("reviewed") else "PASS"
         failed += verdict == "FAIL"

@@ -1773,6 +1773,24 @@
         "severity": "low",
         "title": "Recommendations/how to fix",
         "description": "1. Domain Checking: The library must revert for `\\(x \\le 0\\)`, as `\\(\\ln(x)\\)` is not defined in that region.\n2. Recursive Behavior: The internal call to `ln(...)` for reciprocals can lead to deep recursion unless the input range is carefully controlled.\n3. Extreme Exponents: Large or tiny exponents/values might trigger division by zero or overflow.\n4. Approximation Thresholds: Hardcoded step functions with large expansions are prone to boundary and transcription errors.\n5. Large Constants: Powers like `10**76` are at the edge of feasible 256\u2010bit integers, risking overflow if extended.\n\nAll these issues should be addressed (or at least extensively tested) to ensure the library accurately computes natural logarithms across valid input ranges."
+      },
+      {
+        "finding_id": "2025-04-forte-float128-solidity-library_L-07",
+        "severity": "low",
+        "title": "Potential for silent arithmetic overflow in exponent adjustment",
+        "description": "Even if the sign detection bug were somehow \u201cfixed,\u201d the direct usage of `exp(10, N)` in EVM for `\\(N \\approx 76\\)` is still borderline for 256\u2010bit arithmetic. In particular:\n\n- `\\(10^{76}\\)` is already `\\(\\approx 2^{252.8}\\)`.\n- `\\(10^{77}\\)` is `\\(\\approx 1.267 \\times 10^{77}\\)`, which is `\\(\\approx 1.27 \\times 2^{256}\\)`.\n\nThus, `10^77` in 256\u2010bit arithmetic would overflow to `\\(\\mod 2^{256}\\)` and produce an incorrect result."
+      },
+      {
+        "finding_id": "2025-04-forte-float128-solidity-library_L-08",
+        "severity": "low",
+        "title": "Additional observations/smaller issues",
+        "description": "`sqrt` Implementation\nThe library attempts a \u201cbit\u2010based approximate\u201d approach to compute the square root of large numbers. While this might work if the inputs are carefully scaled, it\u2019s quite complex and could be off by 1 in boundary conditions. Thorough testing is recommended.\n\n\u201cAutoscaling\u201d `M \u2194 L`\nThe logic that automatically promotes or demotes between 38\u2010digit and 72\u2010digit mantissas is fairly intricate. Even if the exponent\u2013mantissa logic were corrected, the transitions should be heavily fuzz\u2010tested to ensure no corner cases are missed (e.g., borderline exponents, borderline mantissas near `\\(10^{38}\\)` or `\\(10^{72}\\)`)."
+      },
+      {
+        "finding_id": "2025-04-forte-float128-solidity-library_L-09",
+        "severity": "low",
+        "title": "Recommendations/how to fix",
+        "description": "1. Implement \u201cdecimal exponent\u201d logic manually: If you genuinely need to multiply or divide by `\\(10^{N}\\)` (for up to `\\(N=76\\)`), do so with a small custom loop or with a precomputed table of powers of 10 up to 76. Do not rely on the EVM\u2019s `exp` opcode for decimal exponent.\n2. Use a signed integer for exponent difference: You must do a proper (256\u2010bit) signed subtraction for exponent differences, e.g.:\n   \n   ```solidity\n   int256 aExpSigned = int256(shr(EXPONENT_BIT, a) - ZERO_OFFSET);\n   int256 bExpSigned = int256(shr(EXPONENT_BIT, b) - ZERO_OFFSET);\n   int256 adj = aExpSigned - bExpSigned;\n   ```\n   \n   Then check `if (adj < 0) { \u2026 } else { \u2026 }`.\n   \n   Right now, the code is mixing 14\u2010bit exponent with a top\u2010bit sign check that never triggers.\n3. Check for exponent overflow\n   \n   - If `\\(N > 77\\)` is ever needed, then you cannot do `10^N` in a single 256\u2010bit integer.\n   - Decide how big an exponent difference you actually must support. Possibly your design forbids differences `>` 76 or 77. If so, enforce that with explicit `require` statements or logic."
       }
     ]
   },
