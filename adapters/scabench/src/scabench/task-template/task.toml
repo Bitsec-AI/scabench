@@ -23,9 +23,10 @@ split = {{SPLIT_TOML}}
 timeout_sec = {{VERIFIER_TIMEOUT}}
 
 [verifier.env]
-# Judge: "codex" (default) uses the local judge bridge (`uv run scabench-judge` on the host, ChatGPT
-# login, GPT-6 Luna by default); "openai" uses the OpenAI API with OPENAI_API_KEY and SCORER_MODEL.
-SCABENCH_JUDGE = "${SCABENCH_JUDGE:-codex}"
+# Judge: "openai" uses the OpenAI API with OPENAI_API_KEY and SCORER_MODEL; "codex" uses the local
+# judge bridge (`uv run scabench-judge` on the host, ChatGPT login, GPT-6 Luna by default).
+# The default is set when the tasks are generated (`scabench --judge`).
+SCABENCH_JUDGE = "${SCABENCH_JUDGE:-{{DEFAULT_JUDGE}}}"
 SCABENCH_JUDGE_URL = "${SCABENCH_JUDGE_URL:-http://host.docker.internal:8765/v1}"
 SCABENCH_JUDGE_TOKEN = "${SCABENCH_JUDGE_TOKEN:-}"
 OPENAI_API_KEY = "${OPENAI_API_KEY:-}"

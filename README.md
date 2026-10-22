@@ -156,11 +156,11 @@ python -m scoring_algo.generate_report \
 ### ⚓ **Harbor Adapter** (`adapters/scabench/`)
 Run ScaBench with any agent supported by the [Harbor](https://github.com/harbor-framework/harbor) eval framework. Each project becomes a Harbor task: the agent audits the source at the pinned commit and writes `/workspace/findings.json`, and the verifier scores it with the AuditAgent algorithm.
 ```bash
-cd adapters/scabench && uv run scabench          # dev split (train + eval) -> datasets/scabench/
-cd ../.. && uv run --project adapters/scabench scabench-judge &   # local Codex judge (ChatGPT login)
+cd adapters/scabench && uv run scabench          # all 31 projects -> datasets/scabench/
+cd ../.. && export OPENAI_API_KEY=...              # the verifier's LLM judge
 harbor run -p datasets/scabench -a claude-code -m anthropic/claude-sonnet-4-5 -y
 ```
-By default the verifier's LLM judge is GPT-6 Luna through Codex on your ChatGPT plan; set `SCABENCH_JUDGE=openai` to use `OPENAI_API_KEY` instead. Projects are split into train/eval/holdout. See [adapters/scabench/README.md](adapters/scabench/README.md) for details.
+By default the verifier's LLM judge is `o4-mini` through the OpenAI API. To judge with GPT-6 Luna through Codex on your ChatGPT plan instead, generate with `--judge codex` and run the local judge bridge (`scabench-judge`). Projects are also split into train/eval/holdout. See [adapters/scabench/README.md](adapters/scabench/README.md) for details.
 
 ### 📄 **Report Generation**
 - Via AuditAgent algo (preferred):

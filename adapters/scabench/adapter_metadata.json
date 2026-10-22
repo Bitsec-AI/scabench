@@ -1,7 +1,9 @@
 [
   {
     "adapter_name": "scabench",
-    "adapter_builders": [],
+    "adapter_builders": [
+      "yubrew (john@bitsec.ai)"
+    ],
     "original_benchmark": [
       {
         "split": "curated-2025-08-18",

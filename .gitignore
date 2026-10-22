@@ -30,6 +30,7 @@ test_results/
 report.html
 full_report.html
 batch_summary.html
+!datasets/curated-2025-08-18/description-comparison/report_template.html
 reports/
 
 # Temporary and cache files

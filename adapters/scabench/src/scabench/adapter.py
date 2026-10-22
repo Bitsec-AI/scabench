@@ -32,8 +32,11 @@ _REMOTE_DATASET = (
 )
 DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else _REMOTE_DATASET
 DEFAULT_SPLITS = _LOCAL_DATASET.with_name("splits.json")
-# "dev" (train + eval) is the default dataset; the holdout split is only generated on request.
-SPLIT_CHOICES = ("dev", "train", "eval", "holdout", "all")
+# "all" is the published dataset; "dev" (train + eval) leaves the holdout projects out.
+SPLIT_CHOICES = ("all", "dev", "train", "eval", "holdout")
+JUDGE_CHOICES = ("openai", "codex")
+# The codex judge may hold calls until a ChatGPT usage window resets (up to 5 hours).
+DEFAULT_VERIFIER_TIMEOUT = {"openai": 3600.0, "codex": 21600.0}
 
 
 def load_split(split: str, splits_file: Path) -> dict[str, str]:
@@ -102,7 +105,8 @@ class ScaBenchAdapter:
         task_ids: list[str] | None = None,
         dataset: str = DEFAULT_DATASET,
         agent_timeout: float = 3600.0,
-        verifier_timeout: float = 21600.0,
+        verifier_timeout: float | None = None,
+        judge: str = "openai",
         split: str = "all",
         splits_file: Path = DEFAULT_SPLITS,
         **kwargs,
@@ -113,7 +117,8 @@ class ScaBenchAdapter:
         self.task_ids = task_ids
         self.dataset = dataset
         self.agent_timeout = agent_timeout
-        self.verifier_timeout = verifier_timeout
+        self.judge = judge
+        self.verifier_timeout = verifier_timeout or DEFAULT_VERIFIER_TIMEOUT[judge]
         self.split = split
         self.splits_file = splits_file
         self.split_of: dict[str, str] = {}
@@ -177,6 +182,7 @@ class ScaBenchAdapter:
             "{{NUM_HIGH}}": str(sum(v["severity"] in ("critical", "high") for v in vulns)),
             "{{AGENT_TIMEOUT}}": f"{self.agent_timeout:.1f}",
             "{{VERIFIER_TIMEOUT}}": f"{self.verifier_timeout:.1f}",
+            "{{DEFAULT_JUDGE}}": self.judge,
             "{{CODEBASE_LIST}}": "\n".join(
                 f"- `/workspace/{cb['dir']}` — {cb['repo_url']} at commit `{cb['commit']}`"
                 for cb in codebases

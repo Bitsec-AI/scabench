@@ -7,9 +7,9 @@ an LLM judge with 3-vote majority, then precision/recall/F1 are computed the
 same way as the scorer's own report generator.
 
 The judge is chosen by SCABENCH_JUDGE:
-  codex  (default) the local judge bridge (`scabench-judge`), which answers each
-         call with Codex on the host's ChatGPT login; reached at SCABENCH_JUDGE_URL
   openai the OpenAI API with OPENAI_API_KEY and SCORER_MODEL
+  codex  the local judge bridge (`scabench-judge`), which answers each call
+         with Codex on the host's ChatGPT login; reached at SCABENCH_JUDGE_URL
 Only the transport changes; prompts, batching and voting are the scorer's own.
 
 Writes /logs/verifier/reward.json (numbers only) and
@@ -103,7 +103,7 @@ def load_agent_findings(path: Path) -> tuple[list[dict[str, Any]], str | None]:
 
 def configure_judge() -> str:
     """Point the scorer's OpenAI client at the chosen judge and return a label for it."""
-    backend = os.environ.get("SCABENCH_JUDGE", "codex").strip().lower()
+    backend = os.environ.get("SCABENCH_JUDGE", "openai").strip().lower()
     if backend == "openai":
         return f"openai:{os.environ.get('SCORER_MODEL', 'o4-mini')}"
     if backend != "codex":
