@@ -23,7 +23,7 @@ TEMPLATE_DIR = Path(__file__).parent / "task-template"
 
 # Inside the Bitsec-AI/scabench fork the adapter reads the dataset next to it. Elsewhere (e.g. in the
 # Harbor repo) it fetches the dataset and its splits from the fork at a fixed tag, so the generated
-# tasks match the published ones (scabench/scabench 1.0) instead of whatever `main` holds today.
+# tasks match the published ones (bitsec-ai/scabench 1.0) instead of whatever `main` holds today.
 DATASET_REF = "harbor-v1.0"
 _LOCAL_DIR = Path(__file__).resolve().parents[4] / "datasets" / "curated-2025-08-18"
 _REMOTE_DIR = f"https://raw.githubusercontent.com/Bitsec-AI/scabench/{DATASET_REF}/datasets/curated-2025-08-18"

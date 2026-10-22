@@ -3,7 +3,7 @@
 schema_version = "1.0"
 
 [task]
-name = "scabench/{{TASK_ID}}"
+name = "bitsec-ai/scabench__{{TASK_ID}}"
 description = {{DESCRIPTION_TOML}}
 authors = [{ name = "ScaBench" }]
 keywords = ["scabench", "security", "smart-contracts", "audit", {{PLATFORM_TOML}}]

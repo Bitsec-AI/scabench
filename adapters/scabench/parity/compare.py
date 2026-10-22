@@ -25,9 +25,11 @@ def harbor_projects(run: Path) -> dict[str, dict]:
     out = {}
     for job in jobs:
         for reward in job.glob("*/verifier/reward.json"):
-            # Trial dir names are truncated; the trial's result.json has the full task name.
+            # Trial dir names are truncated; the trial's result.json has the full task name
+            # (bitsec-ai/scabench__<project_id>, or scabench/<project_id> before the 1.0 rename).
             trial = json.loads((reward.parents[1] / "result.json").read_text())
-            out[trial["task_name"].rsplit("/", 1)[-1]] = json.loads(reward.read_text())
+            pid = trial["task_name"].rsplit("/", 1)[-1].removeprefix("scabench__")
+            out[pid] = json.loads(reward.read_text())
     return out
 
 

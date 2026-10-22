@@ -74,13 +74,13 @@ adapters/scabench/
 
 ```bash
 # Use oracle agent (reference solution)
-uv run harbor run -d scabench/scabench
+uv run harbor run -d bitsec-ai/scabench
 
 # Use your specified agent and model
-uv run harbor run -d scabench/scabench -a <agent_name> -m "<model_name>"
+uv run harbor run -d bitsec-ai/scabench -a <agent_name> -m "<model_name>"
 
 # The parity subset (the train split)
-uv run harbor run -d scabench/scabench@parity -a <agent_name> -m "<model_name>"
+uv run harbor run -d bitsec-ai/scabench@parity -a <agent_name> -m "<model_name>"
 ```
 
 The dataset is not registered yet. Until it is, generate the tasks locally (see [Usage](#usage-create-task-directories)) and use `-p`.
@@ -170,7 +170,7 @@ Available flags:
 - `--task-ids`: only generate these ScaBench `project_id`s
 - `--dataset`: path or URL of a curated ScaBench dataset JSON.
   - Inside the [Bitsec-AI/scabench](https://github.com/Bitsec-AI/scabench) fork, it defaults to `datasets/curated-2025-08-18/curated-2025-08-18.json`.
-  - Elsewhere (e.g. in the Harbor repo), it defaults to the copy at the fork's `harbor-v1.0` tag, together with that tag's `splits.json`. This reproduces the published `scabench/scabench` 1.0 tasks exactly.
+  - Elsewhere (e.g. in the Harbor repo), it defaults to the copy at the fork's `harbor-v1.0` tag, together with that tag's `splits.json`. This reproduces the published `bitsec-ai/scabench` 1.0 tasks exactly.
 - `--agent-timeout` / `--verifier-timeout`: per-task timeouts in seconds (defaults 3600, and 3600 for the verifier, or 21600 with `--judge codex` to allow for a usage-window wait)
 
 Generation needs network access only to resolve the few unpinned commits (`git ls-remote`).
@@ -217,7 +217,7 @@ Parity ran on the parity subset (the `train` split, 10 of 31 projects), with 3 r
 - The original accepts `--reasoning-effort` but never sends it. The agent likewise sends none unless `reasoning_effort` is set, so the model's default applies.
 
 ```bash
-PYTHONPATH=adapters/scabench/src uv run harbor run -d scabench/scabench@parity \
+PYTHONPATH=adapters/scabench/src uv run harbor run -d bitsec-ai/scabench@parity \
   -a scabench.baseline_agent:ScaBenchBaselineAgent -m openai/gpt-6-luna
 ```
 
@@ -268,7 +268,10 @@ python adapters/scabench/parity/compare.py \
   - The image ships no compilers or chain toolchains (Foundry, Cargo, Scarb, …). Agents that want to build or run tests must install them, which is possible because the agent container has network access.
 - **Leakage risk:** the agent container has public network access, as most agents need it to reach their model API. A determined agent could look up the published audit report. Consider an `allowlist` network mode for strict evaluations.
 - **Shared verifier container:** the verifier runs in the agent's container (Harbor's default). It installs the scorer into a fresh virtualenv at verification time, so it needs network access then.
-- **Pinned commits:** six projects have no commit in the dataset, or only `main`. The adapter pins whatever `HEAD`/`main` resolves to when the tasks are generated. For contest repositories that branch is the frozen contest snapshot.
+- **Pinned commits:** every codebase in the dataset is pinned to a commit.
+  - Six Code4rena contest repos (fenix-finance, lambowin, loopfi, bakerfi, starknet-perpetual, blackhole) had only `main` or no commit in the upstream dataset.
+  - The fork pins them to the commit their `main` resolved to, which is the frozen contest snapshot.
+  - The adapter still resolves an unpinned commit at generation time, for datasets that have one.
 - **Dataset fixes:** the Bitsec-AI fork fixes these benchmark bugs in `curated-2025-08-18` (upstream: scabench-org/scabench):
   - **Source pins:** repository URLs and commits were checked against the audit reports and corrected, e.g. mantra and perennial. One inferred pin, idle-finance (whose contest repo is private), is recorded in `verify-overrides.json`.
   - **Finding text:**
