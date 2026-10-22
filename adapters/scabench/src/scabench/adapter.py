@@ -14,46 +14,54 @@ import json
 import re
 import shutil
 import subprocess
+import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
 
 TEMPLATE_DIR = Path(__file__).parent / "task-template"
 
-_LOCAL_DATASET = (
-    Path(__file__).resolve().parents[4]
-    / "datasets"
-    / "curated-2025-08-18"
-    / "curated-2025-08-18.json"
-)
-_REMOTE_DATASET = (
-    "https://raw.githubusercontent.com/Bitsec-AI/scabench/main/"
-    "datasets/curated-2025-08-18/curated-2025-08-18.json"
-)
-DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else _REMOTE_DATASET
-DEFAULT_SPLITS = _LOCAL_DATASET.with_name("splits.json")
-# "all" is the published dataset; "dev" (train + eval) leaves the holdout projects out.
-SPLIT_CHOICES = ("all", "dev", "train", "eval", "holdout")
+# Inside the Bitsec-AI/scabench fork the adapter reads the dataset next to it. Elsewhere (e.g. in the
+# Harbor repo) it fetches the dataset and its splits from the fork at a fixed tag, so the generated
+# tasks match the published ones (scabench/scabench 1.0) instead of whatever `main` holds today.
+DATASET_REF = "harbor-v1.0"
+_LOCAL_DIR = Path(__file__).resolve().parents[4] / "datasets" / "curated-2025-08-18"
+_REMOTE_DIR = f"https://raw.githubusercontent.com/Bitsec-AI/scabench/{DATASET_REF}/datasets/curated-2025-08-18"
+_LOCAL_DATASET = _LOCAL_DIR / "curated-2025-08-18.json"
+DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else f"{_REMOTE_DIR}/curated-2025-08-18.json"
+DEFAULT_SPLITS = str(_LOCAL_DIR / "splits.json") if _LOCAL_DATASET.exists() else f"{_REMOTE_DIR}/splits.json"
+# "all" is the published dataset; "dev" (train + eval) leaves the holdout projects out; "parity" is
+# the subset parity experiments ran on (the train split), published under the registry's parity tag.
+SPLIT_CHOICES = ("all", "dev", "train", "eval", "holdout", "parity")
 JUDGE_CHOICES = ("openai", "codex")
 # The codex judge may hold calls until a ChatGPT usage window resets (up to 5 hours).
 DEFAULT_VERIFIER_TIMEOUT = {"openai": 3600.0, "codex": 21600.0}
 
 
-def load_split(split: str, splits_file: Path) -> dict[str, str]:
+def load_json(source: str | Path) -> Any:
+    """A JSON file from a local path or a URL."""
+    source = str(source)
+    if source.startswith(("http://", "https://")):
+        try:
+            with urllib.request.urlopen(source, timeout=60) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            raise SystemExit(f"Could not fetch {source}: HTTP {e.code}") from e
+    return json.loads(Path(source).read_text(encoding="utf-8"))
+
+
+def load_split(split: str, splits_file: str | Path) -> dict[str, str]:
     """project_id -> split name for the projects in `split`."""
-    doc = json.loads(Path(splits_file).read_text(encoding="utf-8"))["splits"]
+    doc = load_json(splits_file)["splits"]
     of = {pid: name for name, ids in doc.items() for pid in ids}
-    wanted = {"dev": ("train", "eval"), "all": tuple(doc)}.get(split, (split,))
+    wanted = {"dev": ("train", "eval"), "parity": ("train",), "all": tuple(doc)}.get(split, (split,))
     return {pid: name for pid, name in of.items() if name in wanted}
 
 SEVERITY_ORDER = ["critical", "high", "medium", "low", "informational"]
 
 
 def load_dataset(source: str) -> list[dict[str, Any]]:
-    if source.startswith(("http://", "https://")):
-        with urllib.request.urlopen(source, timeout=60) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    return json.loads(Path(source).read_text(encoding="utf-8"))
+    return load_json(source)
 
 
 def _toml_str(value: str) -> str:
@@ -108,7 +116,7 @@ class ScaBenchAdapter:
         verifier_timeout: float | None = None,
         judge: str = "openai",
         split: str = "all",
-        splits_file: Path = DEFAULT_SPLITS,
+        splits_file: str | Path = DEFAULT_SPLITS,
         **kwargs,
     ):
         self.output_dir = Path(output_dir)
@@ -126,11 +134,14 @@ class ScaBenchAdapter:
     def run(self) -> None:
         projects = load_dataset(self.dataset)
 
-        if Path(self.splits_file).exists():
+        try:
             self.split_of = load_split("all", self.splits_file)
+        except (OSError, SystemExit) as e:
+            if self.split != "all":
+                raise SystemExit(f"--split {self.split} needs {self.splits_file} (run scabench-splits): {e}") from e
+            # A dataset without splits still generates; tasks just carry no split metadata.
+            print(f"Warning: no splits file ({e}); tasks get an empty split")
         if self.split != "all":
-            if not Path(self.splits_file).exists():
-                raise SystemExit(f"--split {self.split} needs {self.splits_file} (run scabench-splits)")
             keep = load_split(self.split, self.splits_file)
             projects = [p for p in projects if p["project_id"] in keep]
 

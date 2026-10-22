@@ -28,13 +28,13 @@ def main() -> None:
         "--split",
         choices=SPLIT_CHOICES,
         default="all",
-        help="Which projects to generate: all (default), dev = train + eval, train, eval or holdout",
+        help="Which projects to generate: all (default), dev = train + eval, train, eval, holdout, "
+        "or parity (the parity subset, = train)",
     )
     parser.add_argument(
         "--splits-file",
-        type=Path,
         default=DEFAULT_SPLITS,
-        help="splits.json written by scabench-splits",
+        help="Path or URL of the splits.json written by scabench-splits (default: next to the dataset)",
     )
     parser.add_argument(
         "--limit",

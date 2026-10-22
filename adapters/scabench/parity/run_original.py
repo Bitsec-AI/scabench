@@ -43,7 +43,7 @@ def run(cmd: list[str], log: Path, env: dict[str, str] | None = None) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--split", default="train", help="train, eval, holdout or all")
+    ap.add_argument("--split", default="train", help="train, eval, holdout, all, or parity (= train)")
     ap.add_argument("--projects", nargs="*", help="project ids (default: the split's)")
     ap.add_argument("--model", default="gpt-6-luna", help="baseline runner model")
     ap.add_argument("--judge-model", default="gpt-6-luna", help="scorer model (MODEL)")
@@ -55,7 +55,8 @@ def main() -> None:
     projects = args.projects
     if not projects:
         splits = json.loads(SPLITS.read_text())["splits"]
-        projects = [p for s, ids in splits.items() if args.split in ("all", s) for p in ids]
+        split = "train" if args.split == "parity" else args.split
+        projects = [p for s, ids in splits.items() if split in ("all", s) for p in ids]
     out = args.out.resolve()
     sources = (args.sources or out.parent / "sources").resolve()
     data_root, output_root, logs = out / "data", out / "scored", out / "logs"
