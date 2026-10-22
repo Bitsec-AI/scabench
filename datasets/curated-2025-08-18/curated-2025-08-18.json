@@ -221,9 +221,9 @@
       {
         "codebase_id": "Fenix Finance Invitational_main",
         "repo_url": "https://github.com/code-423n4/2024-09-fenix-finance",
-        "commit": "main",
+        "commit": "33d2b53c972bf8a030e6a33581227844fff8db7b",
         "tree_url": "https://github.com/code-423n4/2024-09-fenix-finance/tree/main",
-        "tarball_url": "https://github.com/code-423n4/2024-09-fenix-finance/archive/main.tar.gz"
+        "tarball_url": "https://github.com/code-423n4/2024-09-fenix-finance/archive/33d2b53c972bf8a030e6a33581227844fff8db7b.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -409,9 +409,9 @@
       {
         "codebase_id": "Lambo.win_main",
         "repo_url": "https://github.com/code-423n4/2024-12-lambowin",
-        "commit": "main",
+        "commit": "4eff430da9c1e040b55fa499c4b78b252ecc7c41",
         "tree_url": "https://github.com/code-423n4/2024-12-lambowin/tree/main",
-        "tarball_url": "https://github.com/code-423n4/2024-12-lambowin/archive/main.tar.gz"
+        "tarball_url": "https://github.com/code-423n4/2024-12-lambowin/archive/4eff430da9c1e040b55fa499c4b78b252ecc7c41.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -509,9 +509,9 @@
       {
         "codebase_id": "LoopFi_main",
         "repo_url": "https://github.com/code-423n4/2024-10-loopfi",
-        "commit": "main",
+        "commit": "d67538652ba9d5447d9c09aeb5d8d0362faeafb3",
         "tree_url": "https://github.com/code-423n4/2024-10-loopfi/tree/main",
-        "tarball_url": "https://github.com/code-423n4/2024-10-loopfi/archive/main.tar.gz"
+        "tarball_url": "https://github.com/code-423n4/2024-10-loopfi/archive/d67538652ba9d5447d9c09aeb5d8d0362faeafb3.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -763,9 +763,9 @@
       {
         "codebase_id": "BakerFi Invitational_main",
         "repo_url": "https://github.com/code-423n4/2024-12-bakerfi",
-        "commit": "main",
+        "commit": "0daf8a0547b6245faed5b6cd3f5daf44d2ea7c9a",
         "tree_url": "https://github.com/code-423n4/2024-12-bakerfi/tree/main",
-        "tarball_url": "https://github.com/code-423n4/2024-12-bakerfi/archive/main.tar.gz"
+        "tarball_url": "https://github.com/code-423n4/2024-12-bakerfi/archive/0daf8a0547b6245faed5b6cd3f5daf44d2ea7c9a.tar.gz"
       }
     ],
     "vulnerabilities": [
@@ -1966,9 +1966,9 @@
       {
         "codebase_id": "Starknet Perpetual_main",
         "repo_url": "https://github.com/code-423n4/2025-03-starknet",
-        "commit": "",
+        "commit": "7309f256a87c842d2299adac9a95b8d191f16e18",
         "tree_url": "",
-        "tarball_url": ""
+        "tarball_url": "https://github.com/code-423n4/2025-03-starknet/archive/7309f256a87c842d2299adac9a95b8d191f16e18.tar.gz"
       },
       {
         "codebase_id": "Starknet Perpetual_9e4851",
@@ -2067,9 +2067,9 @@
       {
         "codebase_id": "Blackhole_main",
         "repo_url": "https://github.com/code-423n4/2025-05-blackhole",
-        "commit": "main",
+        "commit": "133e380b9cbd35010dcf5b87235695fddfa26c85",
         "tree_url": "https://github.com/code-423n4/2025-05-blackhole/tree/main",
-        "tarball_url": "https://github.com/code-423n4/2025-05-blackhole/archive/main.tar.gz"
+        "tarball_url": "https://github.com/code-423n4/2025-05-blackhole/archive/133e380b9cbd35010dcf5b87235695fddfa26c85.tar.gz"
       }
     ],
     "vulnerabilities": [
