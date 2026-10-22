@@ -79,9 +79,6 @@ def load_agent_findings(path: Path) -> tuple[list[dict[str, Any]], str | None]:
         description = str(item.get("description") or item.get("Description") or "").strip()
         if not title and not description:
             continue
-        location = str(item.get("location") or "").strip()
-        if location:
-            description = f"{description}\n\nLocation: {location}"
         # Unknown severities count as medium so they cannot dodge false-positive accounting.
         raw_sev = str(item.get("severity") or item.get("Severity") or "").strip().lower()
         severity = SEVERITY_ALIASES.get(raw_sev, "medium")
@@ -96,6 +93,8 @@ def load_agent_findings(path: Path) -> tuple[list[dict[str, Any]], str | None]:
                 "description": description or title,
                 "severity": severity,
                 "file": file,
+                # Mapped to the scorer's categories later, as the scorer does for baseline output.
+                "vulnerability_type": item.get("vulnerability_type") or item.get("category"),
             }
         )
     return findings, None
@@ -165,22 +164,28 @@ def main() -> int:
 
     from scoring_algo.core import llm as scorer_llm
     from scoring_algo.core.evaluate import run_evaluation
+    from scoring_algo.core.storage import _map_category_from_vulnerability_type
     from scoring_algo.core.telemetry import set_telemetry
+    from scoring_algo.core.types import CategoryEnum
     from scoring_algo.generate_report import compute_repo_stats
     from scoring_algo.settings import ITERATIONS, Settings
 
-    supported = [m for ms in Settings().SUPPORTED_MODELS.values() for m in ms]
-    if model not in supported:
-        print(f"SCORER_MODEL {model!r} is not supported by the scorer: {supported}", file=sys.stderr)
-        return 1
+    supported = Settings().SUPPORTED_MODELS
+    if not any(model in ms for ms in supported.values()):
+        # The scorer only runs models on its list; add this one (e.g. gpt-6-luna) without changing it.
+        print(f"SCORER_MODEL {model!r} is not on the scorer's validated list; adding it")
+        os.environ["SUPPORTED_MODELS"] = json.dumps({**supported, "openai": [*supported.get("openai", []), model]})
 
     set_telemetry(False)
+    CATEGORIES = {c.value for c in CategoryEnum}
 
     if judge.startswith("codex:"):
-        # The bridge holds calls while the Codex usage window is exhausted (up to hours), and retries
-        # itself, so the client must wait long and not stack its own retries on top.
-        timeout = float(os.environ.get("SCABENCH_JUDGE_HTTP_TIMEOUT", "21600"))
-        scorer_llm.AsyncOpenAI = functools.partial(scorer_llm.AsyncOpenAI, timeout=timeout, max_retries=1)
+        # The bridge answers every request within 18 minutes: 503 while it holds calls for an exhausted
+        # Codex usage window (retried here, so 20 retries cover a 5-hour reset), 422 once Codex itself
+        # keeps failing (not retried). A timeout just above that means the request is lost; one parity
+        # run had a request wait in the client's connection pool for hours, so keep this short.
+        timeout = float(os.environ.get("SCABENCH_JUDGE_HTTP_TIMEOUT", "1200"))
+        scorer_llm.AsyncOpenAI = functools.partial(scorer_llm.AsyncOpenAI, timeout=timeout, max_retries=20)
 
     # The scorer swallows API errors (returns None); count them so they are visible.
     judge_calls = {"total": 0, "failed": 0}
@@ -202,7 +207,17 @@ def main() -> int:
         (data_root / SCAN_SOURCE).mkdir(parents=True)
         (data_root / "source_of_truth" / f"{project_id}.json").write_text(json.dumps(truth))
         scan_path = data_root / SCAN_SOURCE / f"{project_id}_results.json"
-        scan_path.write_text(json.dumps(findings))
+        # Same fields the scorer reads from baseline-runner output: title, severity, description, file
+        # and the category mapped from vulnerability_type.
+        scan = []
+        for f in findings:
+            item = {k: v for k, v in f.items() if k != "vulnerability_type"}
+            category = f["vulnerability_type"]
+            category = category if category in CATEGORIES else _map_category_from_vulnerability_type(category)
+            if category:
+                item["Category"] = category
+            scan.append(item)
+        scan_path.write_text(json.dumps(scan))
 
         run_evaluation(
             repo_name=project_id,

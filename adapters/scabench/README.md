@@ -5,7 +5,7 @@
 ScaBench evaluates how well security tools and AI agents find real vulnerabilities in smart contract codebases. Each item is a codebase that was the scope of a public audit contest (Code4rena, Cantina, Sherlock), paired with the vulnerabilities confirmed in that contest's final report.
 
 - **Domain:** smart contract security auditing (Solidity, Rust/CosmWasm, Move, Cairo, Go, …)
-- **Source:** [scabench-org/scabench](https://github.com/scabench-org/scabench), dataset `curated-2025-08-18`
+- **Source:** [Bitsec-AI/scabench](https://github.com/Bitsec-AI/scabench) (a fork of [scabench-org/scabench](https://github.com/scabench-org/scabench) with cleaned finding text), dataset `curated-2025-08-18`
 - **Size:** 31 projects, 555 ground-truth vulnerabilities (114 high/critical). **This adapter produces 31 tasks**, one per project, with no projects excluded.
 - **Main adaptations:** the original harness is a per-file LLM baseline runner. In Harbor, any agent explores the full source tree and writes a single `findings.json`. Scoring is unchanged: the official Nethermind AuditAgent scoring algorithm, pinned to a fixed commit.
 
@@ -142,7 +142,9 @@ uv run harbor run -p datasets/scabench -a <agent> -m "<model>" -y
   - `--port`.
   - `--token`: require a bearer token; pass the same value as `SCABENCH_JUDGE_TOKEN`.
   - `--log`: one JSON line per call (default `jobs/judge-bridge.jsonl`).
-- **Usage limits:** the bridge reads the ChatGPT plan's Codex usage windows and holds calls once a window reaches 95%, until that window resets. Runs slow down instead of losing scores. With `--judge codex`, the verifier timeout (6 hours) covers a 5-hour reset; with `SCABENCH_JUDGE=codex` on tasks generated for the OpenAI judge (1 hour), add `--timeout-multiplier 6`. If the *weekly* limit runs out, trials time out; resume the job after the reset with `harbor job resume`.
+  - `--max-attempts` (default 3) and `--call-timeout` (default 600 s): Codex retries per call.
+  - `--request-deadline` (default 1080 s): every request gets an answer within this time, see below.
+- **Usage limits:** the bridge reads the ChatGPT plan's Codex usage windows and holds calls once a window reaches 95%, until that window resets. Runs slow down instead of losing scores. A call still held, or still queued for a free slot, when it reaches the request deadline is answered with `503` and `Retry-After`, and the scorer retries it (up to 20 times). A call that still fails after the bridge's own attempts gets `422`, which is not retried. Because every answer arrives within the deadline, the scorer can use a 20-minute HTTP timeout, so a lost request costs minutes, not hours. With `--judge codex`, the verifier timeout (6 hours) covers a 5-hour reset; with `SCABENCH_JUDGE=codex` on tasks generated for the OpenAI judge (1 hour), add `--timeout-multiplier 6`. If the *weekly* limit runs out, trials time out; resume the job after the reset with `harbor job resume`.
 - **Throughput:** on a Plus plan, about 90 Luna judge calls used roughly 2% of a 5-hour window, so a full run (31 projects) fits in one window for a typical agent.
 - **Which judge ran:** recorded as `judge` in each trial's `scoring_details.json` (e.g. `codex:gpt-6-luna:medium`). Scores from different judges are not comparable, including older `o4-mini` results.
 
@@ -258,13 +260,13 @@ uv run harbor run -c adapters/scabench/run_scabench.yaml -a <agent> -m "<model>"
   title={ScaBench: Smart Contract Audit Benchmark},
   author={ScaBench contributors},
   year={2025},
-  url={https://github.com/scabench-org/scabench}
+  url={https://github.com/Bitsec-AI/scabench}
 }
 ```
 
 ## Authors & Contributions
 
-This adapter is maintained in the [ScaBench repository](https://github.com/scabench-org/scabench) by yubrew (john@bitsec.ai).
+This adapter is maintained in the [Bitsec-AI ScaBench repository](https://github.com/Bitsec-AI/scabench) by yubrew (john@bitsec.ai).
 
 **Issues and Contributions:**
 - Submit Issues and Pull Requests to the main repository

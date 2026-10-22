@@ -27,7 +27,7 @@ _LOCAL_DATASET = (
     / "curated-2025-08-18.json"
 )
 _REMOTE_DATASET = (
-    "https://raw.githubusercontent.com/scabench-org/scabench/main/"
+    "https://raw.githubusercontent.com/Bitsec-AI/scabench/main/"
     "datasets/curated-2025-08-18/curated-2025-08-18.json"
 )
 DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else _REMOTE_DATASET
