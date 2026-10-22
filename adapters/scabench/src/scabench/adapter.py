@@ -28,8 +28,16 @@ DATASET_REF = "harbor-v1.0"
 _LOCAL_DIR = Path(__file__).resolve().parents[4] / "datasets" / "curated-2025-08-18"
 _REMOTE_DIR = f"https://raw.githubusercontent.com/Bitsec-AI/scabench/{DATASET_REF}/datasets/curated-2025-08-18"
 _LOCAL_DATASET = _LOCAL_DIR / "curated-2025-08-18.json"
-DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else f"{_REMOTE_DIR}/curated-2025-08-18.json"
-DEFAULT_SPLITS = str(_LOCAL_DIR / "splits.json") if _LOCAL_DATASET.exists() else f"{_REMOTE_DIR}/splits.json"
+DEFAULT_DATASET = (
+    str(_LOCAL_DATASET)
+    if _LOCAL_DATASET.exists()
+    else f"{_REMOTE_DIR}/curated-2025-08-18.json"
+)
+DEFAULT_SPLITS = (
+    str(_LOCAL_DIR / "splits.json")
+    if _LOCAL_DATASET.exists()
+    else f"{_REMOTE_DIR}/splits.json"
+)
 # "all" is the published dataset; "dev" (train + eval) leaves the holdout projects out; "parity" is
 # the subset parity experiments ran on (the train split), published under the registry's parity tag.
 SPLIT_CHOICES = ("all", "dev", "train", "eval", "holdout", "parity")
@@ -54,8 +62,11 @@ def load_split(split: str, splits_file: str | Path) -> dict[str, str]:
     """project_id -> split name for the projects in `split`."""
     doc = load_json(splits_file)["splits"]
     of = {pid: name for name, ids in doc.items() for pid in ids}
-    wanted = {"dev": ("train", "eval"), "parity": ("train",), "all": tuple(doc)}.get(split, (split,))
+    wanted = {"dev": ("train", "eval"), "parity": ("train",), "all": tuple(doc)}.get(
+        split, (split,)
+    )
     return {pid: name for pid, name in of.items() if name in wanted}
+
 
 SEVERITY_ORDER = ["critical", "high", "medium", "low", "informational"]
 
@@ -138,7 +149,9 @@ class ScaBenchAdapter:
             self.split_of = load_split("all", self.splits_file)
         except (OSError, SystemExit) as e:
             if self.split != "all":
-                raise SystemExit(f"--split {self.split} needs {self.splits_file} (run scabench-splits): {e}") from e
+                raise SystemExit(
+                    f"--split {self.split} needs {self.splits_file} (run scabench-splits): {e}"
+                ) from e
             # A dataset without splits still generates; tasks just carry no split metadata.
             print(f"Warning: no splits file ({e}); tasks get an empty split")
         if self.split != "all":
@@ -166,7 +179,9 @@ class ScaBenchAdapter:
             self.generate_task(project, task_dir)
             written += 1
 
-        print(f"Wrote {written} task(s) to {self.output_dir} ({skipped} existing skipped)")
+        print(
+            f"Wrote {written} task(s) to {self.output_dir} ({skipped} existing skipped)"
+        )
 
     def generate_task(self, project: dict[str, Any], task_dir: Path) -> None:
         shutil.copytree(TEMPLATE_DIR, task_dir)
@@ -190,7 +205,9 @@ class ScaBenchAdapter:
             "{{PLATFORM_TOML}}": _toml_str(project["platform"]),
             "{{NUM_VULNS}}": str(len(vulns)),
             "{{SPLIT_TOML}}": _toml_str(self.split_of.get(project_id, "")),
-            "{{NUM_HIGH}}": str(sum(v["severity"] in ("critical", "high") for v in vulns)),
+            "{{NUM_HIGH}}": str(
+                sum(v["severity"] in ("critical", "high") for v in vulns)
+            ),
             "{{AGENT_TIMEOUT}}": f"{self.agent_timeout:.1f}",
             "{{VERIFIER_TIMEOUT}}": f"{self.verifier_timeout:.1f}",
             "{{DEFAULT_JUDGE}}": self.judge,

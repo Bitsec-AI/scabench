@@ -25,10 +25,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from openai import AsyncOpenAI
+
 from harbor.agents.base import BaseAgent
 from harbor.environments.base import BaseEnvironment
 from harbor.models.agent.context import AgentContext
-from openai import AsyncOpenAI
 
 WORKSPACE = "/workspace"
 FINDINGS_PATH = f"{WORKSPACE}/findings.json"
@@ -87,7 +88,7 @@ def user_prompt(file_path: Path, content: str) -> str:
     return f"""Analyze this {file_path.suffix} file for security vulnerabilities:
 
 File: {file_path.name}
-```{file_path.suffix[1:] if file_path.suffix else 'txt'}
+```{file_path.suffix[1:] if file_path.suffix else "txt"}
 {content}
 ```
 
@@ -102,7 +103,9 @@ def find_files(source_dir: Path) -> list[Path]:
     return sorted(f for f in files if f.is_file() and "test" not in f.name.lower())
 
 
-def parse_findings(result_text: str, file_name: str, model_id: str) -> list[dict[str, Any]]:
+def parse_findings(
+    result_text: str, file_name: str, model_id: str
+) -> list[dict[str, Any]]:
     """The original's response handling. Raises on a reply that is not JSON, like the original."""
     result = json.loads(result_text) if result_text else {}
     findings_data: list[Any] = []
@@ -136,7 +139,9 @@ def parse_findings(result_text: str, file_name: str, model_id: str) -> list[dict
 
 
 class ScaBenchBaselineAgent(BaseAgent):
-    def __init__(self, *args, concurrency: int = 8, reasoning_effort: str | None = None, **kwargs):
+    def __init__(
+        self, *args, concurrency: int = 8, reasoning_effort: str | None = None, **kwargs
+    ):
         super().__init__(*args, **kwargs)
         self._concurrency = int(concurrency)
         self._reasoning_effort = reasoning_effort
@@ -169,11 +174,18 @@ class ScaBenchBaselineAgent(BaseAgent):
             input_tokens = (usage.prompt_tokens or 0) if usage else 0
             output_tokens = (usage.completion_tokens or 0) if usage else 0
             result_text = completion.choices[0].message.content or ""
-            return parse_findings(result_text, file_path.name, model_id), input_tokens, output_tokens, None
+            return (
+                parse_findings(result_text, file_path.name, model_id),
+                input_tokens,
+                output_tokens,
+                None,
+            )
         except Exception as e:  # noqa: BLE001 - the original drops the file's findings on any error
             return [], 0, 0, f"{file_path.name}: {type(e).__name__}: {e}"[:300]
 
-    async def run(self, instruction: str, environment: BaseEnvironment, context: AgentContext) -> None:
+    async def run(
+        self, instruction: str, environment: BaseEnvironment, context: AgentContext
+    ) -> None:
         if not self.model_name:
             raise RuntimeError("scabench-baseline needs a model (-m openai/<model>)")
         model_id = self.model_name.split("/", 1)[-1]
@@ -193,7 +205,9 @@ class ScaBenchBaselineAgent(BaseAgent):
                 if not content.strip():
                     return None, None
                 async with slots:
-                    return await self.analyze_file(client, model_id, file_path, content), None
+                    return await self.analyze_file(
+                        client, model_id, file_path, content
+                    ), None
 
             results = await asyncio.gather(*(one(f) for f in files))
 
@@ -225,7 +239,11 @@ class ScaBenchBaselineAgent(BaseAgent):
             "files_skipped": skipped,
             "total_findings": len(unique),
             "findings": list(unique.values()),
-            "token_usage": {"input_tokens": n_in, "output_tokens": n_out, "total_tokens": n_in + n_out},
+            "token_usage": {
+                "input_tokens": n_in,
+                "output_tokens": n_out,
+                "total_tokens": n_in + n_out,
+            },
         }
         local = Path(self.logs_dir) / "findings.json"
         local.parent.mkdir(parents=True, exist_ok=True)

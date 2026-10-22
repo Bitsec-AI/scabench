@@ -33,9 +33,12 @@ def assign(projects: list[dict], sizes: tuple[int, ...], seed: int) -> dict[str,
     out: dict[str, str] = {}
     # Largest platforms first, so the small ones fill whatever capacity is left evenly.
     for platform in sorted(by_platform, key=lambda k: (-len(by_platform[k]), k)):
-        group = sorted(by_platform[platform], key=lambda p: (len(p["vulnerabilities"]), p["project_id"]))
+        group = sorted(
+            by_platform[platform],
+            key=lambda p: (len(p["vulnerabilities"]), p["project_id"]),
+        )
         for i in range(0, len(group), len(SPLITS)):
-            tier = group[i:i + len(SPLITS)]
+            tier = group[i : i + len(SPLITS)]
             # Splits with the most room left go first; ties are broken at random.
             order = sorted(SPLITS, key=lambda s: (-capacity[s], rng.random()))
             for project, split in zip(tier, order):
@@ -47,16 +50,31 @@ def assign(projects: list[dict], sizes: tuple[int, ...], seed: int) -> dict[str,
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("--dataset", default=DEFAULT_DATASET)
-    ap.add_argument("--out", type=Path, default=None, help="default: splits.json next to the dataset")
+    ap.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="default: splits.json next to the dataset",
+    )
     ap.add_argument("--seed", type=int, default=DEFAULT_SEED)
-    ap.add_argument("--sizes", type=int, nargs=3, default=DEFAULT_SIZES, metavar=("TRAIN", "EVAL", "HOLDOUT"))
+    ap.add_argument(
+        "--sizes",
+        type=int,
+        nargs=3,
+        default=DEFAULT_SIZES,
+        metavar=("TRAIN", "EVAL", "HOLDOUT"),
+    )
     args = ap.parse_args()
 
     projects = load_dataset(args.dataset)
     if sum(args.sizes) != len(projects):
-        raise SystemExit(f"sizes add up to {sum(args.sizes)}, dataset has {len(projects)} projects")
+        raise SystemExit(
+            f"sizes add up to {sum(args.sizes)}, dataset has {len(projects)} projects"
+        )
     split_of = assign(projects, tuple(args.sizes), args.seed)
     out = args.out or Path(args.dataset).with_name("splits.json")
     doc = {
@@ -64,7 +82,9 @@ def main() -> None:
         "seed": args.seed,
         "created": date.today().isoformat(),
         "method": "stratified by platform and finding count (scabench-splits)",
-        "splits": {s: sorted(pid for pid, v in split_of.items() if v == s) for s in SPLITS},
+        "splits": {
+            s: sorted(pid for pid, v in split_of.items() if v == s) for s in SPLITS
+        },
     }
     out.write_text(json.dumps(doc, indent=2) + "\n")
     for s in SPLITS:

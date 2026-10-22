@@ -8,7 +8,13 @@ configured output directory.
 import argparse
 from pathlib import Path
 
-from .adapter import DEFAULT_DATASET, DEFAULT_SPLITS, JUDGE_CHOICES, SPLIT_CHOICES, ScaBenchAdapter
+from .adapter import (
+    DEFAULT_DATASET,
+    DEFAULT_SPLITS,
+    JUDGE_CHOICES,
+    SPLIT_CHOICES,
+    ScaBenchAdapter,
+)
 
 # Default output dirs: <repo>/datasets/scabench for all projects,
 # <repo>/datasets/scabench-<split> for a single split.
@@ -80,7 +86,9 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    output_dir = args.output_dir or DATASETS_DIR / ("scabench" if args.split == "all" else f"scabench-{args.split}")
+    output_dir = args.output_dir or DATASETS_DIR / (
+        "scabench" if args.split == "all" else f"scabench-{args.split}"
+    )
     adapter = ScaBenchAdapter(
         output_dir,
         split=args.split,
