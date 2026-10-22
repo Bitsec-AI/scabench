@@ -191,13 +191,13 @@ Tune and iterate on `train`, compare on `eval`, and run `holdout` only for final
 
 ## Comparison with Original Benchmark (Parity)
 
-Parity ran on the parity subset (the `train` split, 10 of 31 projects), with 3 runs per side. The agent was `scabench-baseline`, and GPT-6 Luna (medium reasoning) served as both agent model and judge on both sides. Scores are mean ± sample SEM over runs; each run's score is the mean over projects. Full results are in `parity_experiment.json`.
+Parity ran on the parity subset (the `train` split, 10 of 31 projects), with 3 runs per side. The agent was `scabench-baseline`, and GPT-6 Luna (medium reasoning) served as both agent model and judge on both sides. Scores are mean ± sample SEM over runs; each run's score is the mean over projects. The run ranges overlap on every metric. Full results are in `parity_experiment.json`.
 
 | Agent | Model | Metric | Number of Runs | Dataset Size | Original Benchmark Performance | Harbor Adapter Performance |
 |-------|-------|--------|------------------|--------------|------------------------------|----------------------------|
-| scabench-baseline@1.0.0 | gpt-6-luna | f1 | 3 | 10 (32%) | PENDING | PENDING |
-| scabench-baseline@1.0.0 | gpt-6-luna | recall | 3 | 10 (32%) | PENDING | PENDING |
-| scabench-baseline@1.0.0 | gpt-6-luna | precision | 3 | 10 (32%) | PENDING | PENDING |
+| scabench-baseline@1.0.0 | gpt-6-luna | f1 | 3 | 10 (32%) | 0.0557 ± 0.0015 | 0.0605 ± 0.0052 |
+| scabench-baseline@1.0.0 | gpt-6-luna | recall | 3 | 10 (32%) | 0.0483 ± 0.0023 | 0.0526 ± 0.0062 |
+| scabench-baseline@1.0.0 | gpt-6-luna | precision | 3 | 10 (32%) | 0.0728 ± 0.0099 | 0.0935 ± 0.0074 |
 
 - **Original side:** ScaBench's own pipeline, unchanged:
   1. `dataset-generator/checkout_sources.py`
@@ -284,7 +284,7 @@ python adapters/scabench/parity/compare.py \
   - `vulnerability_type` is mapped to the scorer's category the same way the scorer maps baseline-runner output.
 - **Judge and agent routes:** scores are comparable only within the same judge, and within the same way of calling the agent's model.
   - In the parity experiments, sending the baseline agent's calls through the Codex bridge (`codex exec`) instead of the API halved the number of findings and lowered F1 by 0.063 ± 0.020.
-  - The judge route changed F1 by PENDING.
+  - Scoring the same agent outputs with both judges, the API judge agreed with itself on 98% of verdicts. The Codex judge was within a few F1 points of it.
   - Use the bridge for judging. Don't use it to stand in for an API-based agent.
 
 ## Installation / Prerequisites
