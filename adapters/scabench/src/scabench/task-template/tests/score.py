@@ -6,16 +6,24 @@ each ground-truth finding is matched one-to-one against the agent's findings by
 an LLM judge with 3-vote majority, then precision/recall/F1 are computed the
 same way as the scorer's own report generator.
 
+The judge is chosen by SCABENCH_JUDGE:
+  codex  (default) the local judge bridge (`scabench-judge`), which answers each
+         call with Codex on the host's ChatGPT login; reached at SCABENCH_JUDGE_URL
+  openai the OpenAI API with OPENAI_API_KEY and SCORER_MODEL
+Only the transport changes; prompts, batching and voting are the scorer's own.
+
 Writes /logs/verifier/reward.json (numbers only) and
 /logs/verifier/scoring_details.json (per-finding judgements).
 """
 
 from __future__ import annotations
 
+import functools
 import json
 import os
 import sys
 import tempfile
+import urllib.request
 from pathlib import Path
 from typing import Any
 
@@ -93,6 +101,29 @@ def load_agent_findings(path: Path) -> tuple[list[dict[str, Any]], str | None]:
     return findings, None
 
 
+def configure_judge() -> str:
+    """Point the scorer's OpenAI client at the chosen judge and return a label for it."""
+    backend = os.environ.get("SCABENCH_JUDGE", "codex").strip().lower()
+    if backend == "openai":
+        return f"openai:{os.environ.get('SCORER_MODEL', 'o4-mini')}"
+    if backend != "codex":
+        raise SystemExit(f"SCABENCH_JUDGE must be 'codex' or 'openai', got {backend!r}")
+    url = os.environ.get("SCABENCH_JUDGE_URL") or "http://host.docker.internal:8765/v1"
+    token = os.environ.get("SCABENCH_JUDGE_TOKEN") or "codex-bridge"
+    request = urllib.request.Request(f"{url.rstrip('/')}/judge", headers={"Authorization": f"Bearer {token}"})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as resp:
+            info = json.loads(resp.read())
+    except Exception as e:  # noqa: BLE001
+        raise SystemExit(
+            f"Judge bridge not reachable at {url} ({e}). Start it on the host with "
+            "`cd adapters/scabench && uv run scabench-judge`, or set SCABENCH_JUDGE=openai."
+        ) from e
+    os.environ["OPENAI_BASE_URL"] = url
+    os.environ["OPENAI_API_KEY"] = token
+    return info["judge"]
+
+
 def write_reward(reward: dict[str, float], details: dict[str, Any]) -> None:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     (LOG_DIR / "reward.json").write_text(json.dumps(reward, indent=2))
@@ -107,6 +138,9 @@ def main() -> int:
         return 1
     model = os.environ.get("SCORER_MODEL", "o4-mini")
     batch_size = int(os.environ.get("SCORER_BATCH_SIZE", "10"))
+
+    judge = configure_judge()
+    print(f"Judge: {judge}")
 
     truth = json.loads(TRUTH_PATH.read_text(encoding="utf-8"))
     project_id = truth["project_id"]
@@ -126,7 +160,7 @@ def main() -> int:
             "false_positives": 0,
             "false_negatives": n_truth,
         }
-        write_reward(reward, {"error": error, "evaluated": []})
+        write_reward(reward, {"error": error, "judge": judge, "evaluated": []})
         return 0
 
     from scoring_algo.core import llm as scorer_llm
@@ -141,6 +175,12 @@ def main() -> int:
         return 1
 
     set_telemetry(False)
+
+    if judge.startswith("codex:"):
+        # The bridge holds calls while the Codex usage window is exhausted (up to hours), and retries
+        # itself, so the client must wait long and not stack its own retries on top.
+        timeout = float(os.environ.get("SCABENCH_JUDGE_HTTP_TIMEOUT", "21600"))
+        scorer_llm.AsyncOpenAI = functools.partial(scorer_llm.AsyncOpenAI, timeout=timeout, max_retries=1)
 
     # The scorer swallows API errors (returns None); count them so they are visible.
     judge_calls = {"total": 0, "failed": 0}
@@ -208,6 +248,7 @@ def main() -> int:
             "project_id": project_id,
             "reward_metric": metric,
             "scorer_model": model,
+            "judge": judge,
             "agent_findings": findings,
             "evaluated": evaluated,
         },

@@ -73,4 +73,5 @@ config.json
 
 # Generated Harbor tasks (adapters/scabench)
 datasets/scabench/
+datasets/scabench-*/
 jobs/

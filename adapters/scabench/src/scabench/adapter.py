@@ -31,6 +31,17 @@ _REMOTE_DATASET = (
     "datasets/curated-2025-08-18/curated-2025-08-18.json"
 )
 DEFAULT_DATASET = str(_LOCAL_DATASET) if _LOCAL_DATASET.exists() else _REMOTE_DATASET
+DEFAULT_SPLITS = _LOCAL_DATASET.with_name("splits.json")
+# "dev" (train + eval) is the default dataset; the holdout split is only generated on request.
+SPLIT_CHOICES = ("dev", "train", "eval", "holdout", "all")
+
+
+def load_split(split: str, splits_file: Path) -> dict[str, str]:
+    """project_id -> split name for the projects in `split`."""
+    doc = json.loads(Path(splits_file).read_text(encoding="utf-8"))["splits"]
+    of = {pid: name for name, ids in doc.items() for pid in ids}
+    wanted = {"dev": ("train", "eval"), "all": tuple(doc)}.get(split, (split,))
+    return {pid: name for pid, name in of.items() if name in wanted}
 
 SEVERITY_ORDER = ["critical", "high", "medium", "low", "informational"]
 
@@ -91,7 +102,9 @@ class ScaBenchAdapter:
         task_ids: list[str] | None = None,
         dataset: str = DEFAULT_DATASET,
         agent_timeout: float = 3600.0,
-        verifier_timeout: float = 3600.0,
+        verifier_timeout: float = 21600.0,
+        split: str = "all",
+        splits_file: Path = DEFAULT_SPLITS,
         **kwargs,
     ):
         self.output_dir = Path(output_dir)
@@ -101,9 +114,20 @@ class ScaBenchAdapter:
         self.dataset = dataset
         self.agent_timeout = agent_timeout
         self.verifier_timeout = verifier_timeout
+        self.split = split
+        self.splits_file = splits_file
+        self.split_of: dict[str, str] = {}
 
     def run(self) -> None:
         projects = load_dataset(self.dataset)
+
+        if Path(self.splits_file).exists():
+            self.split_of = load_split("all", self.splits_file)
+        if self.split != "all":
+            if not Path(self.splits_file).exists():
+                raise SystemExit(f"--split {self.split} needs {self.splits_file} (run scabench-splits)")
+            keep = load_split(self.split, self.splits_file)
+            projects = [p for p in projects if p["project_id"] in keep]
 
         if self.task_ids:
             wanted = set(self.task_ids)
@@ -149,6 +173,7 @@ class ScaBenchAdapter:
             ),
             "{{PLATFORM_TOML}}": _toml_str(project["platform"]),
             "{{NUM_VULNS}}": str(len(vulns)),
+            "{{SPLIT_TOML}}": _toml_str(self.split_of.get(project_id, "")),
             "{{NUM_HIGH}}": str(sum(v["severity"] in ("critical", "high") for v in vulns)),
             "{{AGENT_TIMEOUT}}": f"{self.agent_timeout:.1f}",
             "{{VERIFIER_TIMEOUT}}": f"{self.verifier_timeout:.1f}",

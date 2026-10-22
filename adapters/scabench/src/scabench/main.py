@@ -8,10 +8,11 @@ configured output directory.
 import argparse
 from pathlib import Path
 
-from .adapter import DEFAULT_DATASET, ScaBenchAdapter
+from .adapter import DEFAULT_DATASET, DEFAULT_SPLITS, SPLIT_CHOICES, ScaBenchAdapter
 
-# Default output dir: <repo>/datasets/scabench
-DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parents[4] / "datasets" / "scabench"
+# Default output dirs: <repo>/datasets/scabench for the dev split (train + eval),
+# <repo>/datasets/scabench-<split> for the others.
+DATASETS_DIR = Path(__file__).resolve().parents[4] / "datasets"
 
 
 def main() -> None:
@@ -19,8 +20,21 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=DEFAULT_OUTPUT_DIR,
-        help="Directory to write generated tasks",
+        default=None,
+        help="Directory to write generated tasks (default: datasets/scabench for dev, "
+        "datasets/scabench-<split> otherwise)",
+    )
+    parser.add_argument(
+        "--split",
+        choices=SPLIT_CHOICES,
+        default="dev",
+        help="Which projects to generate: dev = train + eval (default), or train, eval, holdout, all",
+    )
+    parser.add_argument(
+        "--splits-file",
+        type=Path,
+        default=DEFAULT_SPLITS,
+        help="splits.json written by scabench-splits",
     )
     parser.add_argument(
         "--limit",
@@ -53,13 +67,16 @@ def main() -> None:
     parser.add_argument(
         "--verifier-timeout",
         type=float,
-        default=3600.0,
-        help="Verifier (LLM scoring) timeout per task in seconds",
+        default=21600.0,
+        help="Verifier (LLM scoring) timeout per task in seconds; the codex judge may wait for a usage reset",
     )
     args = parser.parse_args()
 
+    output_dir = args.output_dir or DATASETS_DIR / ("scabench" if args.split == "dev" else f"scabench-{args.split}")
     adapter = ScaBenchAdapter(
-        args.output_dir,
+        output_dir,
+        split=args.split,
+        splits_file=args.splits_file,
         overwrite=args.overwrite,
         limit=args.limit,
         task_ids=args.task_ids,

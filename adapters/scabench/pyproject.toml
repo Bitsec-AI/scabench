@@ -8,6 +8,8 @@ dependencies = []
 
 [project.scripts]
 scabench = "scabench.main:main"
+scabench-judge = "scabench.judge_bridge:main"
+scabench-splits = "scabench.splits:main"
 
 [build-system]
 requires = ["uv_build>=0.8.0,<0.14.0"]
